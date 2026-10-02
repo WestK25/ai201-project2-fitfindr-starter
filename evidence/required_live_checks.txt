@@ -1,0 +1,5 @@
+Zero-results TOOL: []
+Impossible AGENT: No matching listings. Broaden the description, remove the size filter, or increase the budget and retry.
+Tools called: ['search_listings']
+Empty caption: Error: A valid outfit suggestion is required before creating a fit card.
+LIVE empty wardrobe: Error: Outfit styling could not generate a valid response. Check your Groq connection, model access or quota and retry.

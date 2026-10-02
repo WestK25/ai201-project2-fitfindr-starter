@@ -14,3 +14,11 @@ env/
 
 # macOS
 .DS_Store
+
+# Local preferences, verified trend cache, test caches
+.fitfindr/
+.pytest_cache/
+.env.*
+!.env.example
+.coverage
+htmlcov/
