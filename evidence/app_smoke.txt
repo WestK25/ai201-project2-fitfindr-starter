@@ -1,0 +1,13 @@
+{
+  "url": "http://127.0.0.1:50303",
+  "http_config": "200 OK",
+  "components": 18,
+  "event_api": "handle_query_with_details",
+  "empty_query_result": [
+    "Enter an item, for example: vintage graphic tee under $30, size M.",
+    "",
+    ""
+  ],
+  "server_stopped": "SIGINT in finally"
+}
+Server exited: 0

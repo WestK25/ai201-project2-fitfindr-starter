@@ -2,3 +2,6 @@ groq==0.15.0
 python-dotenv==1.0.1
 gradio>=6.9.0
 pytest>=8.0.0
+
+# Direct HTTP dependency for verified public trend retrieval
+httpx>=0.27,<1

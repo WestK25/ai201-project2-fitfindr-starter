@@ -112,9 +112,11 @@ def _item_valid(item):
             and isinstance(item.get("price"), (int, float)) and math.isfinite(item["price"]) and item["price"] >= 0)
 
 
-def _generation_error(tool):
+def _generation_error(tool, exception=None):
     if not os.environ.get("GROQ_API_KEY"):
         return f"Error: {tool} needs GROQ_API_KEY in the local .env file. Add it and retry."
+    if getattr(exception, "status_code", None) == 404:
+        return f"Error: {tool} cannot access the configured Groq model ({MODEL}). It may be retired; use a course-approved supported model, then retry."
     return f"Error: {tool} could not generate a valid response. Check your Groq connection, model access or quota and retry."
 
 
@@ -136,8 +138,17 @@ def suggest_outfit(new_item: dict, wardrobe: dict) -> str:
         "For an empty wardrobe return empty wardrobe_ids and useful GENERAL suggestions for types of "
         "pieces to pair; do not claim ownership."
     )
+    profile = wardrobe.get("_style_profile") or {}
+    trend_info = wardrobe.get("_trend_info") or {}
+    trend = trend_info.get("relevant_trend")
+    prompt += (" Respect supplied style_profile likes and dislikes in your actual styling advice. "
+               "If relevant_trend is present, also return trend_used (its exact term) and "
+               "trend_application (one sentence explaining how these selected pieces and their styling "
+               "express this trend). Incorporate it into the looks, not just a label. "
+               "Preferences and actual available pieces take priority; do not invent items.")
     try:
-        data = _generate_json(prompt, {"new_item": new_item, "wardrobe": {"items": items}}, 0.5)
+        data = _generate_json(prompt, {"new_item": new_item, "wardrobe": {"items": items},
+                                      "style_profile": profile, "relevant_trend": trend}, 0.5)
         looks = data["looks"]
         if not isinstance(looks, list) or not 1 <= len(looks) <= 2:
             raise ValueError("invalid looks")
@@ -154,9 +165,17 @@ def suggest_outfit(new_item: dict, wardrobe: dict) -> str:
             pieces = "; ".join(allowed[i] for i in dict.fromkeys(ids))
             label = f"Outfit {index}" if items else f"General styling idea {index} (suggested pieces, not owned)"
             rendered.append(f"{label}: {new_item['title']}" + (f" + {pieces}. " if pieces else ". ") + advice.strip())
+        if trend:
+            application = data.get("trend_application")
+            if data.get("trend_used") != trend["term"] or not isinstance(application, str) or len(application.strip()) < 15:
+                raise ValueError("missing trend application")
+            rendered.append(f"Trend note — {trend['term']}: {application.strip()} "
+                            f"({trend_info['source']}; published {trend_info['published_at']}; "
+                            f"{trend_info['status']}, retrieved {trend_info['retrieved_at']}). "
+                            f"Source: {trend_info['source_url']}")
         return "\n\n".join(rendered)
-    except (GroqError, OSError, ValueError, TypeError, KeyError, IndexError, AttributeError):
-        return _generation_error("Outfit styling")
+    except (GroqError, OSError, ValueError, TypeError, KeyError, IndexError, AttributeError) as exc:
+        return _generation_error("Outfit styling", exc)
 
 
 def create_fit_card(outfit: str, new_item: dict) -> str:
@@ -183,5 +202,43 @@ def create_fit_card(outfit: str, new_item: dict) -> str:
                 raise ValueError("repeated facts")
         body = " ".join(s.strip().rstrip(".!?") + "." for s in sentences)
         return f"Found my {new_item['title']} for ${new_item['price']:g} on {new_item['platform']}. {body}"
-    except (GroqError, OSError, ValueError, TypeError, KeyError, IndexError, AttributeError):
-        return _generation_error("Fit card generation")
+    except (GroqError, OSError, ValueError, TypeError, KeyError, IndexError, AttributeError) as exc:
+        return _generation_error("Fit card generation", exc)
+
+
+
+def compare_price(item: dict) -> dict:
+    """Compare real same-garment starter asking prices; never invent market data."""
+    from statistics import median
+    result = {'assessment': 'unavailable', 'item_price': item.get('price') if isinstance(item, dict) else None,
+              'comparable_count': 0, 'comparable_ids': [], 'comparable_prices': [],
+              'median_price': None, 'strategy': 'none', 'reasoning': 'A valid selected listing is required.'}
+    if not _item_valid(item):
+        return result
+    try:
+        groups = [family for family in FAMILIES if _tokens(item['title']) & family]
+        peers = [p for p in load_listings() if p['id'] != item['id'] and p['category'] == item['category']
+                 and groups and any(_tokens(p['title']) & family for family in groups)]
+        same_brand = [p for p in peers if item.get('brand') and p.get('brand') == item['brand']]
+        shared_style = [p for p in peers if set(p['style_tags']) & set(item['style_tags'])]
+        if len(same_brand) >= 2:
+            peers, strategy = same_brand, 'same garment family, category and brand'
+        elif len(shared_style) >= 2:
+            peers, strategy = shared_style, 'same garment family/category with shared style tags'
+        else:
+            strategy = 'same garment family and category (broadened beyond brand/style)'
+        same_condition = [p for p in peers if p['condition'] == item['condition']]
+        if len(same_condition) >= 2:
+            peers, strategy = same_condition, strategy + '; same condition'
+        else:
+            strategy += '; conditions may vary'
+        prices = [float(p['price']) for p in peers]
+        mid = median(prices) if prices else None
+        result.update(comparable_count=len(peers), comparable_ids=[p['id'] for p in peers],
+                      comparable_prices=prices, median_price=mid, strategy=strategy)
+        if len(peers) < 2:
+            return {**result, 'assessment': 'insufficient data', 'reasoning': f'Only {len(peers)} comparable listing(s); at least two are required for a deal assessment. {strategy}.'}
+        assessment = 'good deal' if item['price'] < mid * .85 else 'above comparable range' if item['price'] > mid * 1.15 else 'fair price'
+        return {**result, 'assessment': assessment, 'reasoning': f"${item['price']:g} versus ${mid:g} median across {len(peers)} other mock listings; {strategy}. Fair means within 15% of the median. Asking prices only; not a market valuation."}
+    except (OSError, ValueError, TypeError, KeyError):
+        return {**result, 'reasoning': 'Comparison data unavailable. Restore data/listings.json; core styling can continue.'}

@@ -130,3 +130,12 @@ def test_malformed_generation(item, groq_mock):
 def test_missing_key(item, monkeypatch):
     monkeypatch.delenv('GROQ_API_KEY', raising=False)
     assert 'GROQ_API_KEY in the local .env' in tools.suggest_outfit(item, get_empty_wardrobe())
+
+
+def test_unavailable_model_error_is_actionable(item, groq_mock, monkeypatch):
+    from groq import NotFoundError
+    monkeypatch.setenv('GROQ_API_KEY', 'unit-test-placeholder')
+    client = groq_mock({})
+    client.chat.completions.create.side_effect = NotFoundError('sensitive raw message', response=httpx.Response(404, request=httpx.Request('POST', 'https://api.groq.com')), body={'error': {'code': 'model_not_found'}})
+    result = tools.suggest_outfit(item, get_example_wardrobe())
+    assert 'course-approved supported model' in result and 'sensitive raw message' not in result

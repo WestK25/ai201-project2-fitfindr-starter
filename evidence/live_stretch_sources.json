@@ -1,0 +1,98 @@
+{
+  "selected_item_id": "lst_002",
+  "price_assessment": {
+    "assessment": "good deal",
+    "item_price": 18.0,
+    "comparable_count": 2,
+    "comparable_ids": [
+      "lst_006",
+      "lst_033"
+    ],
+    "comparable_prices": [
+      24.0,
+      19.0
+    ],
+    "median_price": 21.5,
+    "strategy": "same garment family/category with shared style tags; conditions may vary",
+    "reasoning": "$18 versus $21.5 median across 2 other mock listings; same garment family/category with shared style tags; conditions may vary. Fair means within 15% of the median. Asking prices only; not a market valuation."
+  },
+  "trend_info": {
+    "source": "Depop newsroom \u00b7 2026 annual trends report",
+    "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+    "published_at": "2025-12-20",
+    "retrieved_at": "2026-10-02T16:08:58.099314+00:00",
+    "terms": [
+      {
+        "term": "Modern Uniforms",
+        "keywords": [
+          "button",
+          "jackets",
+          "knits",
+          "neutral",
+          "peacoats",
+          "shirts",
+          "tailoring",
+          "workwear"
+        ]
+      },
+      {
+        "term": "Neo Nostalgia",
+        "keywords": [
+          "2000s",
+          "70s",
+          "90s",
+          "bandage",
+          "dresses",
+          "jorts",
+          "layering",
+          "medieval",
+          "nostalgia"
+        ]
+      },
+      {
+        "term": "Everyday Ceremony",
+        "keywords": [
+          "accessories",
+          "blazers",
+          "coats",
+          "heels",
+          "jewelry",
+          "metallic",
+          "skirts"
+        ]
+      },
+      {
+        "term": "Romanticized Sports",
+        "keywords": [
+          "athletic",
+          "ballet",
+          "jerseys",
+          "shorts",
+          "silk",
+          "ski",
+          "sportswear",
+          "tailoring",
+          "tennis",
+          "vintage"
+        ]
+      }
+    ],
+    "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+    "status": "live",
+    "warning": null,
+    "relevant_trend": {
+      "term": "Neo Nostalgia",
+      "keywords": [
+        "2000s",
+        "70s",
+        "90s",
+        "bandage",
+        "dresses",
+        "jorts",
+        "layering",
+        "medieval",
+        "nostalgia"
+      ]
+    }
+  }
+}

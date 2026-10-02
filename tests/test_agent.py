@@ -82,3 +82,7 @@ def test_missing_data_controlled(monkeypatch):
     monkeypatch.setattr(agent, 'search_listings', missing)
     result = agent.run_agent('tee', get_empty_wardrobe())
     assert 'Restore data/listings.json' in result['error'] and 'private path' not in result['error']
+
+
+def test_decimal_shoe_size():
+    assert agent.parse_query('boots size 8.5')['size'] == '8.5'

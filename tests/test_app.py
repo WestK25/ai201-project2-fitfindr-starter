@@ -20,3 +20,9 @@ def test_happy_panels_and_wardrobe_choice(monkeypatch):
     result = app.handle_query('tee', 'Empty wardrobe (new user)')
     assert len(result) == 3 and 'Y2K Baby Tee' in result[0] and '$18.00' in result[0]
     assert result[1:] == ('General advice.', 'Caption.')
+
+
+def test_fallback_warning_visible():
+    session = {"error": None, "selected_item": load_listings()[1], "outfit_suggestion": "Outfit", "fit_card": "Caption", "warnings": ["Search fallback removed size."], "price_assessment": {"assessment": "good deal", "reasoning": "Two real peers."}}
+    assert 'removed size' in app._format_session(session)[0]
+    assert 'Two real peers' in app._format_session(session)[0]
