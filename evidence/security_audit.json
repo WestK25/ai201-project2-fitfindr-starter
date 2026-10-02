@@ -1,0 +1,24 @@
+{
+  "worktree_files_scanned": 34,
+  "history_blobs_scanned": 43,
+  "secret_matches_worktree": 0,
+  "secret_matches_history": 0,
+  "forbidden_tracked_files": [],
+  "ignored_runtime_paths": {
+    ".env": true,
+    ".venv": true,
+    ".fitfindr/style_profile.json": true,
+    ".fitfindr/trends.json": true
+  },
+  "documented_required_signatures_match": {
+    "search_listings(description: str, size: str | None = None, max_price: float | None = None) -> list[dict]": true,
+    "suggest_outfit(new_item: dict, wardrobe: dict) -> str": true,
+    "create_fit_card(outfit: str, new_item: dict) -> str": true
+  },
+  "planning_commits_only_change_plan": {
+    "Complete FitFindr required-feature plan": true,
+    "Plan FitFindr stretch features": true
+  },
+  "starter_data_and_loader_unchanged": true,
+  "implementation_placeholder_count": 0
+}

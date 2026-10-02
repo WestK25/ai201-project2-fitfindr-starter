@@ -1,0 +1,2677 @@
+{
+  "ran_at": "2026-10-02T16:48:01.530462+00:00",
+  "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+  "scenarios": {
+    "happy": {
+      "query": "vintage graphic tee under $30, size M",
+      "parsed": {
+        "description": "vintage graphic tee",
+        "size": "M",
+        "max_price": 30.0
+      },
+      "search_results": [
+        {
+          "id": "lst_002",
+          "title": "Y2K Baby Tee — Butterfly Print",
+          "description": "Super cute early 2000s baby tee with butterfly graphic. Fitted crop length. Tag says medium but fits like a small.",
+          "category": "tops",
+          "style_tags": [
+            "y2k",
+            "vintage",
+            "graphic tee",
+            "cottagecore"
+          ],
+          "size": "S/M",
+          "condition": "excellent",
+          "price": 18.0,
+          "colors": [
+            "white",
+            "pink",
+            "purple"
+          ],
+          "brand": null,
+          "platform": "depop"
+        }
+      ],
+      "selected_item": {
+        "id": "lst_002",
+        "title": "Y2K Baby Tee — Butterfly Print",
+        "description": "Super cute early 2000s baby tee with butterfly graphic. Fitted crop length. Tag says medium but fits like a small.",
+        "category": "tops",
+        "style_tags": [
+          "y2k",
+          "vintage",
+          "graphic tee",
+          "cottagecore"
+        ],
+        "size": "S/M",
+        "condition": "excellent",
+        "price": 18.0,
+        "colors": [
+          "white",
+          "pink",
+          "purple"
+        ],
+        "brand": null,
+        "platform": "depop"
+      },
+      "wardrobe": {
+        "items": [
+          {
+            "id": "w_001",
+            "name": "Baggy straight-leg jeans, dark wash",
+            "category": "bottoms",
+            "colors": [
+              "dark blue",
+              "indigo"
+            ],
+            "style_tags": [
+              "denim",
+              "streetwear",
+              "baggy"
+            ],
+            "notes": "High-waisted, sits above the hip"
+          },
+          {
+            "id": "w_002",
+            "name": "Wide-leg khaki trousers",
+            "category": "bottoms",
+            "colors": [
+              "khaki",
+              "tan"
+            ],
+            "style_tags": [
+              "earth tones",
+              "minimal",
+              "wide-leg"
+            ],
+            "notes": null
+          },
+          {
+            "id": "w_003",
+            "name": "White ribbed tank top",
+            "category": "tops",
+            "colors": [
+              "white"
+            ],
+            "style_tags": [
+              "basics",
+              "minimal",
+              "fitted"
+            ],
+            "notes": "Goes with everything"
+          },
+          {
+            "id": "w_004",
+            "name": "Oversized grey crewneck sweatshirt",
+            "category": "tops",
+            "colors": [
+              "grey",
+              "charcoal"
+            ],
+            "style_tags": [
+              "oversized",
+              "basics",
+              "cozy"
+            ],
+            "notes": "Really oversized — drops below the hip"
+          },
+          {
+            "id": "w_005",
+            "name": "Black cropped zip hoodie",
+            "category": "tops",
+            "colors": [
+              "black"
+            ],
+            "style_tags": [
+              "athletic",
+              "streetwear",
+              "cropped"
+            ],
+            "notes": null
+          },
+          {
+            "id": "w_006",
+            "name": "Vintage black denim jacket",
+            "category": "outerwear",
+            "colors": [
+              "black"
+            ],
+            "style_tags": [
+              "denim",
+              "vintage",
+              "classic"
+            ],
+            "notes": "Slightly cropped"
+          },
+          {
+            "id": "w_007",
+            "name": "Chunky white sneakers",
+            "category": "shoes",
+            "colors": [
+              "white"
+            ],
+            "style_tags": [
+              "sneakers",
+              "chunky",
+              "streetwear"
+            ],
+            "notes": null
+          },
+          {
+            "id": "w_008",
+            "name": "Black combat boots",
+            "category": "shoes",
+            "colors": [
+              "black"
+            ],
+            "style_tags": [
+              "boots",
+              "grunge",
+              "classic"
+            ],
+            "notes": "Lace-up, mid-ankle height"
+          },
+          {
+            "id": "w_009",
+            "name": "Brown leather belt",
+            "category": "accessories",
+            "colors": [
+              "brown"
+            ],
+            "style_tags": [
+              "classic",
+              "earth tones",
+              "accessories"
+            ],
+            "notes": null
+          },
+          {
+            "id": "w_010",
+            "name": "Black crossbody bag",
+            "category": "accessories",
+            "colors": [
+              "black"
+            ],
+            "style_tags": [
+              "minimal",
+              "accessories",
+              "everyday"
+            ],
+            "notes": null
+          }
+        ],
+        "_style_profile": {
+          "likes": [],
+          "dislikes": [],
+          "updated_at": null,
+          "warning": null
+        },
+        "_trend_info": {
+          "source": "Depop newsroom · 2026 annual trends report",
+          "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+          "published_at": "2025-12-20",
+          "retrieved_at": "2026-10-02T16:48:01.689431+00:00",
+          "terms": [
+            {
+              "term": "Modern Uniforms",
+              "keywords": [
+                "button",
+                "jackets",
+                "knits",
+                "neutral",
+                "peacoats",
+                "shirts",
+                "tailoring",
+                "workwear"
+              ]
+            },
+            {
+              "term": "Neo Nostalgia",
+              "keywords": [
+                "2000s",
+                "70s",
+                "90s",
+                "bandage",
+                "dresses",
+                "jorts",
+                "layering",
+                "medieval",
+                "nostalgia"
+              ]
+            },
+            {
+              "term": "Everyday Ceremony",
+              "keywords": [
+                "accessories",
+                "blazers",
+                "coats",
+                "heels",
+                "jewelry",
+                "metallic",
+                "skirts"
+              ]
+            },
+            {
+              "term": "Romanticized Sports",
+              "keywords": [
+                "athletic",
+                "ballet",
+                "jerseys",
+                "shorts",
+                "silk",
+                "ski",
+                "sportswear",
+                "tailoring",
+                "tennis",
+                "vintage"
+              ]
+            }
+          ],
+          "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+          "status": "live",
+          "warning": null,
+          "relevant_trend": {
+            "term": "Neo Nostalgia",
+            "keywords": [
+              "2000s",
+              "70s",
+              "90s",
+              "bandage",
+              "dresses",
+              "jorts",
+              "layering",
+              "medieval",
+              "nostalgia"
+            ]
+          }
+        }
+      },
+      "outfit_suggestion": null,
+      "fit_card": null,
+      "error": "Error: Outfit styling cannot access the configured Groq model (meta-llama/llama-4-scout-17b-16e-instruct). It may be retired; use a course-approved supported model, then retry.",
+      "stage": "error",
+      "tool_trace": [
+        {
+          "tool": "search_listings",
+          "inputs": {
+            "description": "vintage graphic tee",
+            "size": "M",
+            "max_price": 30.0
+          },
+          "output": {
+            "result_count": 1
+          },
+          "transition": "search -> context"
+        },
+        {
+          "tool": "compare_price",
+          "inputs": {
+            "item_id": "lst_002"
+          },
+          "output": {
+            "status": "good deal"
+          },
+          "transition": "context -> context"
+        },
+        {
+          "tool": "get_trends",
+          "inputs": {
+            "item_id": "lst_002"
+          },
+          "output": {
+            "status": "live"
+          },
+          "transition": "context -> context"
+        },
+        {
+          "tool": "suggest_outfit",
+          "inputs": {
+            "item_id": "lst_002",
+            "wardrobe_count": 10
+          },
+          "output": {
+            "success": false
+          },
+          "transition": "outfit -> error"
+        }
+      ],
+      "retry_history": [
+        {
+          "attempt": 1,
+          "original_constraints": {
+            "description": "vintage graphic tee",
+            "size": "M",
+            "max_price": 30.0
+          },
+          "constraints": {
+            "description": "vintage graphic tee",
+            "size": "M",
+            "max_price": 30.0
+          },
+          "changed": [],
+          "reason": "initial search",
+          "result_count": 1
+        }
+      ],
+      "price_assessment": {
+        "assessment": "good deal",
+        "item_price": 18.0,
+        "comparable_count": 2,
+        "comparable_ids": [
+          "lst_006",
+          "lst_033"
+        ],
+        "comparable_prices": [
+          24.0,
+          19.0
+        ],
+        "median_price": 21.5,
+        "strategy": "same garment family/category with shared style tags; conditions may vary",
+        "reasoning": "$18 versus $21.5 median across 2 other mock listings; same garment family/category with shared style tags; conditions may vary. Fair means within 15% of the median. Asking prices only; not a market valuation."
+      },
+      "trend_info": {
+        "source": "Depop newsroom · 2026 annual trends report",
+        "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+        "published_at": "2025-12-20",
+        "retrieved_at": "2026-10-02T16:48:01.689431+00:00",
+        "terms": [
+          {
+            "term": "Modern Uniforms",
+            "keywords": [
+              "button",
+              "jackets",
+              "knits",
+              "neutral",
+              "peacoats",
+              "shirts",
+              "tailoring",
+              "workwear"
+            ]
+          },
+          {
+            "term": "Neo Nostalgia",
+            "keywords": [
+              "2000s",
+              "70s",
+              "90s",
+              "bandage",
+              "dresses",
+              "jorts",
+              "layering",
+              "medieval",
+              "nostalgia"
+            ]
+          },
+          {
+            "term": "Everyday Ceremony",
+            "keywords": [
+              "accessories",
+              "blazers",
+              "coats",
+              "heels",
+              "jewelry",
+              "metallic",
+              "skirts"
+            ]
+          },
+          {
+            "term": "Romanticized Sports",
+            "keywords": [
+              "athletic",
+              "ballet",
+              "jerseys",
+              "shorts",
+              "silk",
+              "ski",
+              "sportswear",
+              "tailoring",
+              "tennis",
+              "vintage"
+            ]
+          }
+        ],
+        "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+        "status": "live",
+        "warning": null,
+        "relevant_trend": {
+          "term": "Neo Nostalgia",
+          "keywords": [
+            "2000s",
+            "70s",
+            "90s",
+            "bandage",
+            "dresses",
+            "jorts",
+            "layering",
+            "medieval",
+            "nostalgia"
+          ]
+        }
+      },
+      "style_profile_used": {
+        "likes": [],
+        "dislikes": [],
+        "updated_at": null,
+        "warning": null
+      },
+      "warnings": [],
+      "identity_verified": true
+    },
+    "deliberate_failures": {
+      "search_tool": [],
+      "agent": {
+        "query": "designer ballgown size XXS under $5",
+        "parsed": {
+          "description": "designer ballgown",
+          "size": "XXS",
+          "max_price": 5.0
+        },
+        "search_results": [],
+        "selected_item": null,
+        "wardrobe": {
+          "items": [
+            {
+              "id": "w_001",
+              "name": "Baggy straight-leg jeans, dark wash",
+              "category": "bottoms",
+              "colors": [
+                "dark blue",
+                "indigo"
+              ],
+              "style_tags": [
+                "denim",
+                "streetwear",
+                "baggy"
+              ],
+              "notes": "High-waisted, sits above the hip"
+            },
+            {
+              "id": "w_002",
+              "name": "Wide-leg khaki trousers",
+              "category": "bottoms",
+              "colors": [
+                "khaki",
+                "tan"
+              ],
+              "style_tags": [
+                "earth tones",
+                "minimal",
+                "wide-leg"
+              ],
+              "notes": null
+            },
+            {
+              "id": "w_003",
+              "name": "White ribbed tank top",
+              "category": "tops",
+              "colors": [
+                "white"
+              ],
+              "style_tags": [
+                "basics",
+                "minimal",
+                "fitted"
+              ],
+              "notes": "Goes with everything"
+            },
+            {
+              "id": "w_004",
+              "name": "Oversized grey crewneck sweatshirt",
+              "category": "tops",
+              "colors": [
+                "grey",
+                "charcoal"
+              ],
+              "style_tags": [
+                "oversized",
+                "basics",
+                "cozy"
+              ],
+              "notes": "Really oversized — drops below the hip"
+            },
+            {
+              "id": "w_005",
+              "name": "Black cropped zip hoodie",
+              "category": "tops",
+              "colors": [
+                "black"
+              ],
+              "style_tags": [
+                "athletic",
+                "streetwear",
+                "cropped"
+              ],
+              "notes": null
+            },
+            {
+              "id": "w_006",
+              "name": "Vintage black denim jacket",
+              "category": "outerwear",
+              "colors": [
+                "black"
+              ],
+              "style_tags": [
+                "denim",
+                "vintage",
+                "classic"
+              ],
+              "notes": "Slightly cropped"
+            },
+            {
+              "id": "w_007",
+              "name": "Chunky white sneakers",
+              "category": "shoes",
+              "colors": [
+                "white"
+              ],
+              "style_tags": [
+                "sneakers",
+                "chunky",
+                "streetwear"
+              ],
+              "notes": null
+            },
+            {
+              "id": "w_008",
+              "name": "Black combat boots",
+              "category": "shoes",
+              "colors": [
+                "black"
+              ],
+              "style_tags": [
+                "boots",
+                "grunge",
+                "classic"
+              ],
+              "notes": "Lace-up, mid-ankle height"
+            },
+            {
+              "id": "w_009",
+              "name": "Brown leather belt",
+              "category": "accessories",
+              "colors": [
+                "brown"
+              ],
+              "style_tags": [
+                "classic",
+                "earth tones",
+                "accessories"
+              ],
+              "notes": null
+            },
+            {
+              "id": "w_010",
+              "name": "Black crossbody bag",
+              "category": "accessories",
+              "colors": [
+                "black"
+              ],
+              "style_tags": [
+                "minimal",
+                "accessories",
+                "everyday"
+              ],
+              "notes": null
+            }
+          ],
+          "_style_profile": {
+            "likes": [],
+            "dislikes": [],
+            "updated_at": null,
+            "warning": null
+          }
+        },
+        "outfit_suggestion": null,
+        "fit_card": null,
+        "error": "No matching listings after all applicable retries. Broaden the description, remove the size filter, or increase the budget and retry.",
+        "stage": "error",
+        "tool_trace": [
+          {
+            "tool": "search_listings",
+            "inputs": {
+              "description": "designer ballgown",
+              "size": "XXS",
+              "max_price": 5.0
+            },
+            "output": {
+              "result_count": 0
+            },
+            "transition": "search -> search"
+          },
+          {
+            "tool": "search_listings",
+            "inputs": {
+              "description": "designer ballgown",
+              "size": null,
+              "max_price": 5.0
+            },
+            "output": {
+              "result_count": 0
+            },
+            "transition": "search -> search"
+          },
+          {
+            "tool": "search_listings",
+            "inputs": {
+              "description": "designer ballgown",
+              "size": null,
+              "max_price": null
+            },
+            "output": {
+              "result_count": 0
+            },
+            "transition": "search -> error"
+          }
+        ],
+        "retry_history": [
+          {
+            "attempt": 1,
+            "original_constraints": {
+              "description": "designer ballgown",
+              "size": "XXS",
+              "max_price": 5.0
+            },
+            "constraints": {
+              "description": "designer ballgown",
+              "size": "XXS",
+              "max_price": 5.0
+            },
+            "changed": [],
+            "reason": "initial search",
+            "result_count": 0
+          },
+          {
+            "attempt": 2,
+            "original_constraints": {
+              "description": "designer ballgown",
+              "size": "XXS",
+              "max_price": 5.0
+            },
+            "constraints": {
+              "description": "designer ballgown",
+              "size": null,
+              "max_price": 5.0
+            },
+            "changed": [
+              "size"
+            ],
+            "reason": "Previous search returned no results; loosen filters without changing the item description.",
+            "result_count": 0
+          },
+          {
+            "attempt": 3,
+            "original_constraints": {
+              "description": "designer ballgown",
+              "size": "XXS",
+              "max_price": 5.0
+            },
+            "constraints": {
+              "description": "designer ballgown",
+              "size": null,
+              "max_price": null
+            },
+            "changed": [
+              "size",
+              "max_price"
+            ],
+            "reason": "Previous search returned no results; loosen filters without changing the item description.",
+            "result_count": 0
+          }
+        ],
+        "price_assessment": null,
+        "trend_info": null,
+        "style_profile_used": {
+          "likes": [],
+          "dislikes": [],
+          "updated_at": null,
+          "warning": null
+        },
+        "warnings": []
+      },
+      "empty_caption": "Error: A valid outfit suggestion is required before creating a fit card."
+    },
+    "empty_wardrobe": {
+      "query": "vintage graphic tee under $30, size M",
+      "parsed": {
+        "description": "vintage graphic tee",
+        "size": "M",
+        "max_price": 30.0
+      },
+      "search_results": [
+        {
+          "id": "lst_002",
+          "title": "Y2K Baby Tee — Butterfly Print",
+          "description": "Super cute early 2000s baby tee with butterfly graphic. Fitted crop length. Tag says medium but fits like a small.",
+          "category": "tops",
+          "style_tags": [
+            "y2k",
+            "vintage",
+            "graphic tee",
+            "cottagecore"
+          ],
+          "size": "S/M",
+          "condition": "excellent",
+          "price": 18.0,
+          "colors": [
+            "white",
+            "pink",
+            "purple"
+          ],
+          "brand": null,
+          "platform": "depop"
+        }
+      ],
+      "selected_item": {
+        "id": "lst_002",
+        "title": "Y2K Baby Tee — Butterfly Print",
+        "description": "Super cute early 2000s baby tee with butterfly graphic. Fitted crop length. Tag says medium but fits like a small.",
+        "category": "tops",
+        "style_tags": [
+          "y2k",
+          "vintage",
+          "graphic tee",
+          "cottagecore"
+        ],
+        "size": "S/M",
+        "condition": "excellent",
+        "price": 18.0,
+        "colors": [
+          "white",
+          "pink",
+          "purple"
+        ],
+        "brand": null,
+        "platform": "depop"
+      },
+      "wardrobe": {
+        "_note": "Use this as the starting template for a new user with no wardrobe entered yet.",
+        "items": [],
+        "_style_profile": {
+          "likes": [],
+          "dislikes": [],
+          "updated_at": null,
+          "warning": null
+        },
+        "_trend_info": {
+          "source": "Depop newsroom · 2026 annual trends report",
+          "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+          "published_at": "2025-12-20",
+          "retrieved_at": "2026-10-02T16:48:01.689431+00:00",
+          "terms": [
+            {
+              "term": "Modern Uniforms",
+              "keywords": [
+                "button",
+                "jackets",
+                "knits",
+                "neutral",
+                "peacoats",
+                "shirts",
+                "tailoring",
+                "workwear"
+              ]
+            },
+            {
+              "term": "Neo Nostalgia",
+              "keywords": [
+                "2000s",
+                "70s",
+                "90s",
+                "bandage",
+                "dresses",
+                "jorts",
+                "layering",
+                "medieval",
+                "nostalgia"
+              ]
+            },
+            {
+              "term": "Everyday Ceremony",
+              "keywords": [
+                "accessories",
+                "blazers",
+                "coats",
+                "heels",
+                "jewelry",
+                "metallic",
+                "skirts"
+              ]
+            },
+            {
+              "term": "Romanticized Sports",
+              "keywords": [
+                "athletic",
+                "ballet",
+                "jerseys",
+                "shorts",
+                "silk",
+                "ski",
+                "sportswear",
+                "tailoring",
+                "tennis",
+                "vintage"
+              ]
+            }
+          ],
+          "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+          "status": "cached",
+          "warning": "Verified snapshot retrieved within 24 hours; annual report, not daily trends.",
+          "relevant_trend": {
+            "term": "Neo Nostalgia",
+            "keywords": [
+              "2000s",
+              "70s",
+              "90s",
+              "bandage",
+              "dresses",
+              "jorts",
+              "layering",
+              "medieval",
+              "nostalgia"
+            ]
+          }
+        }
+      },
+      "outfit_suggestion": null,
+      "fit_card": null,
+      "error": "Error: Outfit styling cannot access the configured Groq model (meta-llama/llama-4-scout-17b-16e-instruct). It may be retired; use a course-approved supported model, then retry.",
+      "stage": "error",
+      "tool_trace": [
+        {
+          "tool": "search_listings",
+          "inputs": {
+            "description": "vintage graphic tee",
+            "size": "M",
+            "max_price": 30.0
+          },
+          "output": {
+            "result_count": 1
+          },
+          "transition": "search -> context"
+        },
+        {
+          "tool": "compare_price",
+          "inputs": {
+            "item_id": "lst_002"
+          },
+          "output": {
+            "status": "good deal"
+          },
+          "transition": "context -> context"
+        },
+        {
+          "tool": "get_trends",
+          "inputs": {
+            "item_id": "lst_002"
+          },
+          "output": {
+            "status": "cached"
+          },
+          "transition": "context -> context"
+        },
+        {
+          "tool": "suggest_outfit",
+          "inputs": {
+            "item_id": "lst_002",
+            "wardrobe_count": 0
+          },
+          "output": {
+            "success": false
+          },
+          "transition": "outfit -> error"
+        }
+      ],
+      "retry_history": [
+        {
+          "attempt": 1,
+          "original_constraints": {
+            "description": "vintage graphic tee",
+            "size": "M",
+            "max_price": 30.0
+          },
+          "constraints": {
+            "description": "vintage graphic tee",
+            "size": "M",
+            "max_price": 30.0
+          },
+          "changed": [],
+          "reason": "initial search",
+          "result_count": 1
+        }
+      ],
+      "price_assessment": {
+        "assessment": "good deal",
+        "item_price": 18.0,
+        "comparable_count": 2,
+        "comparable_ids": [
+          "lst_006",
+          "lst_033"
+        ],
+        "comparable_prices": [
+          24.0,
+          19.0
+        ],
+        "median_price": 21.5,
+        "strategy": "same garment family/category with shared style tags; conditions may vary",
+        "reasoning": "$18 versus $21.5 median across 2 other mock listings; same garment family/category with shared style tags; conditions may vary. Fair means within 15% of the median. Asking prices only; not a market valuation."
+      },
+      "trend_info": {
+        "source": "Depop newsroom · 2026 annual trends report",
+        "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+        "published_at": "2025-12-20",
+        "retrieved_at": "2026-10-02T16:48:01.689431+00:00",
+        "terms": [
+          {
+            "term": "Modern Uniforms",
+            "keywords": [
+              "button",
+              "jackets",
+              "knits",
+              "neutral",
+              "peacoats",
+              "shirts",
+              "tailoring",
+              "workwear"
+            ]
+          },
+          {
+            "term": "Neo Nostalgia",
+            "keywords": [
+              "2000s",
+              "70s",
+              "90s",
+              "bandage",
+              "dresses",
+              "jorts",
+              "layering",
+              "medieval",
+              "nostalgia"
+            ]
+          },
+          {
+            "term": "Everyday Ceremony",
+            "keywords": [
+              "accessories",
+              "blazers",
+              "coats",
+              "heels",
+              "jewelry",
+              "metallic",
+              "skirts"
+            ]
+          },
+          {
+            "term": "Romanticized Sports",
+            "keywords": [
+              "athletic",
+              "ballet",
+              "jerseys",
+              "shorts",
+              "silk",
+              "ski",
+              "sportswear",
+              "tailoring",
+              "tennis",
+              "vintage"
+            ]
+          }
+        ],
+        "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+        "status": "cached",
+        "warning": "Verified snapshot retrieved within 24 hours; annual report, not daily trends.",
+        "relevant_trend": {
+          "term": "Neo Nostalgia",
+          "keywords": [
+            "2000s",
+            "70s",
+            "90s",
+            "bandage",
+            "dresses",
+            "jorts",
+            "layering",
+            "medieval",
+            "nostalgia"
+          ]
+        }
+      },
+      "style_profile_used": {
+        "likes": [],
+        "dislikes": [],
+        "updated_at": null,
+        "warning": null
+      },
+      "warnings": [
+        "Verified snapshot retrieved within 24 hours; annual report, not daily trends."
+      ]
+    },
+    "retry": {
+      "query": "vintage graphic tee size XXS under $1",
+      "parsed": {
+        "description": "vintage graphic tee",
+        "size": "XXS",
+        "max_price": 1.0
+      },
+      "search_results": [
+        {
+          "id": "lst_006",
+          "title": "Graphic Tee — 2003 Tour Bootleg Style",
+          "description": "Vintage-style bootleg tee with faded graphic. Slightly boxy fit. 100% cotton, soft and worn-in.",
+          "category": "tops",
+          "style_tags": [
+            "graphic tee",
+            "vintage",
+            "grunge",
+            "streetwear",
+            "band tee"
+          ],
+          "size": "L",
+          "condition": "good",
+          "price": 24.0,
+          "colors": [
+            "black"
+          ],
+          "brand": null,
+          "platform": "depop"
+        },
+        {
+          "id": "lst_033",
+          "title": "Vintage Band Tee — Faded Grey",
+          "description": "Faded grey band-style tee with distressed graphic. Crew neck. Fits boxy. Well-loved but no holes or major damage.",
+          "category": "tops",
+          "style_tags": [
+            "vintage",
+            "grunge",
+            "band tee",
+            "graphic tee",
+            "streetwear"
+          ],
+          "size": "L",
+          "condition": "fair",
+          "price": 19.0,
+          "colors": [
+            "grey",
+            "charcoal"
+          ],
+          "brand": null,
+          "platform": "depop"
+        },
+        {
+          "id": "lst_002",
+          "title": "Y2K Baby Tee — Butterfly Print",
+          "description": "Super cute early 2000s baby tee with butterfly graphic. Fitted crop length. Tag says medium but fits like a small.",
+          "category": "tops",
+          "style_tags": [
+            "y2k",
+            "vintage",
+            "graphic tee",
+            "cottagecore"
+          ],
+          "size": "S/M",
+          "condition": "excellent",
+          "price": 18.0,
+          "colors": [
+            "white",
+            "pink",
+            "purple"
+          ],
+          "brand": null,
+          "platform": "depop"
+        }
+      ],
+      "selected_item": {
+        "id": "lst_006",
+        "title": "Graphic Tee — 2003 Tour Bootleg Style",
+        "description": "Vintage-style bootleg tee with faded graphic. Slightly boxy fit. 100% cotton, soft and worn-in.",
+        "category": "tops",
+        "style_tags": [
+          "graphic tee",
+          "vintage",
+          "grunge",
+          "streetwear",
+          "band tee"
+        ],
+        "size": "L",
+        "condition": "good",
+        "price": 24.0,
+        "colors": [
+          "black"
+        ],
+        "brand": null,
+        "platform": "depop"
+      },
+      "wardrobe": {
+        "items": [
+          {
+            "id": "w_001",
+            "name": "Baggy straight-leg jeans, dark wash",
+            "category": "bottoms",
+            "colors": [
+              "dark blue",
+              "indigo"
+            ],
+            "style_tags": [
+              "denim",
+              "streetwear",
+              "baggy"
+            ],
+            "notes": "High-waisted, sits above the hip"
+          },
+          {
+            "id": "w_002",
+            "name": "Wide-leg khaki trousers",
+            "category": "bottoms",
+            "colors": [
+              "khaki",
+              "tan"
+            ],
+            "style_tags": [
+              "earth tones",
+              "minimal",
+              "wide-leg"
+            ],
+            "notes": null
+          },
+          {
+            "id": "w_003",
+            "name": "White ribbed tank top",
+            "category": "tops",
+            "colors": [
+              "white"
+            ],
+            "style_tags": [
+              "basics",
+              "minimal",
+              "fitted"
+            ],
+            "notes": "Goes with everything"
+          },
+          {
+            "id": "w_004",
+            "name": "Oversized grey crewneck sweatshirt",
+            "category": "tops",
+            "colors": [
+              "grey",
+              "charcoal"
+            ],
+            "style_tags": [
+              "oversized",
+              "basics",
+              "cozy"
+            ],
+            "notes": "Really oversized — drops below the hip"
+          },
+          {
+            "id": "w_005",
+            "name": "Black cropped zip hoodie",
+            "category": "tops",
+            "colors": [
+              "black"
+            ],
+            "style_tags": [
+              "athletic",
+              "streetwear",
+              "cropped"
+            ],
+            "notes": null
+          },
+          {
+            "id": "w_006",
+            "name": "Vintage black denim jacket",
+            "category": "outerwear",
+            "colors": [
+              "black"
+            ],
+            "style_tags": [
+              "denim",
+              "vintage",
+              "classic"
+            ],
+            "notes": "Slightly cropped"
+          },
+          {
+            "id": "w_007",
+            "name": "Chunky white sneakers",
+            "category": "shoes",
+            "colors": [
+              "white"
+            ],
+            "style_tags": [
+              "sneakers",
+              "chunky",
+              "streetwear"
+            ],
+            "notes": null
+          },
+          {
+            "id": "w_008",
+            "name": "Black combat boots",
+            "category": "shoes",
+            "colors": [
+              "black"
+            ],
+            "style_tags": [
+              "boots",
+              "grunge",
+              "classic"
+            ],
+            "notes": "Lace-up, mid-ankle height"
+          },
+          {
+            "id": "w_009",
+            "name": "Brown leather belt",
+            "category": "accessories",
+            "colors": [
+              "brown"
+            ],
+            "style_tags": [
+              "classic",
+              "earth tones",
+              "accessories"
+            ],
+            "notes": null
+          },
+          {
+            "id": "w_010",
+            "name": "Black crossbody bag",
+            "category": "accessories",
+            "colors": [
+              "black"
+            ],
+            "style_tags": [
+              "minimal",
+              "accessories",
+              "everyday"
+            ],
+            "notes": null
+          }
+        ],
+        "_style_profile": {
+          "likes": [],
+          "dislikes": [],
+          "updated_at": null,
+          "warning": null
+        },
+        "_trend_info": {
+          "source": "Depop newsroom · 2026 annual trends report",
+          "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+          "published_at": "2025-12-20",
+          "retrieved_at": "2026-10-02T16:48:01.689431+00:00",
+          "terms": [
+            {
+              "term": "Modern Uniforms",
+              "keywords": [
+                "button",
+                "jackets",
+                "knits",
+                "neutral",
+                "peacoats",
+                "shirts",
+                "tailoring",
+                "workwear"
+              ]
+            },
+            {
+              "term": "Neo Nostalgia",
+              "keywords": [
+                "2000s",
+                "70s",
+                "90s",
+                "bandage",
+                "dresses",
+                "jorts",
+                "layering",
+                "medieval",
+                "nostalgia"
+              ]
+            },
+            {
+              "term": "Everyday Ceremony",
+              "keywords": [
+                "accessories",
+                "blazers",
+                "coats",
+                "heels",
+                "jewelry",
+                "metallic",
+                "skirts"
+              ]
+            },
+            {
+              "term": "Romanticized Sports",
+              "keywords": [
+                "athletic",
+                "ballet",
+                "jerseys",
+                "shorts",
+                "silk",
+                "ski",
+                "sportswear",
+                "tailoring",
+                "tennis",
+                "vintage"
+              ]
+            }
+          ],
+          "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+          "status": "cached",
+          "warning": "Verified snapshot retrieved within 24 hours; annual report, not daily trends.",
+          "relevant_trend": {
+            "term": "Romanticized Sports",
+            "keywords": [
+              "athletic",
+              "ballet",
+              "jerseys",
+              "shorts",
+              "silk",
+              "ski",
+              "sportswear",
+              "tailoring",
+              "tennis",
+              "vintage"
+            ]
+          }
+        }
+      },
+      "outfit_suggestion": null,
+      "fit_card": null,
+      "error": "Error: Outfit styling cannot access the configured Groq model (meta-llama/llama-4-scout-17b-16e-instruct). It may be retired; use a course-approved supported model, then retry.",
+      "stage": "error",
+      "tool_trace": [
+        {
+          "tool": "search_listings",
+          "inputs": {
+            "description": "vintage graphic tee",
+            "size": "XXS",
+            "max_price": 1.0
+          },
+          "output": {
+            "result_count": 0
+          },
+          "transition": "search -> search"
+        },
+        {
+          "tool": "search_listings",
+          "inputs": {
+            "description": "vintage graphic tee",
+            "size": null,
+            "max_price": 1.0
+          },
+          "output": {
+            "result_count": 0
+          },
+          "transition": "search -> search"
+        },
+        {
+          "tool": "search_listings",
+          "inputs": {
+            "description": "vintage graphic tee",
+            "size": null,
+            "max_price": null
+          },
+          "output": {
+            "result_count": 3
+          },
+          "transition": "search -> context"
+        },
+        {
+          "tool": "compare_price",
+          "inputs": {
+            "item_id": "lst_006"
+          },
+          "output": {
+            "status": "above comparable range"
+          },
+          "transition": "context -> context"
+        },
+        {
+          "tool": "get_trends",
+          "inputs": {
+            "item_id": "lst_006"
+          },
+          "output": {
+            "status": "cached"
+          },
+          "transition": "context -> context"
+        },
+        {
+          "tool": "suggest_outfit",
+          "inputs": {
+            "item_id": "lst_006",
+            "wardrobe_count": 10
+          },
+          "output": {
+            "success": false
+          },
+          "transition": "outfit -> error"
+        }
+      ],
+      "retry_history": [
+        {
+          "attempt": 1,
+          "original_constraints": {
+            "description": "vintage graphic tee",
+            "size": "XXS",
+            "max_price": 1.0
+          },
+          "constraints": {
+            "description": "vintage graphic tee",
+            "size": "XXS",
+            "max_price": 1.0
+          },
+          "changed": [],
+          "reason": "initial search",
+          "result_count": 0
+        },
+        {
+          "attempt": 2,
+          "original_constraints": {
+            "description": "vintage graphic tee",
+            "size": "XXS",
+            "max_price": 1.0
+          },
+          "constraints": {
+            "description": "vintage graphic tee",
+            "size": null,
+            "max_price": 1.0
+          },
+          "changed": [
+            "size"
+          ],
+          "reason": "Previous search returned no results; loosen filters without changing the item description.",
+          "result_count": 0
+        },
+        {
+          "attempt": 3,
+          "original_constraints": {
+            "description": "vintage graphic tee",
+            "size": "XXS",
+            "max_price": 1.0
+          },
+          "constraints": {
+            "description": "vintage graphic tee",
+            "size": null,
+            "max_price": null
+          },
+          "changed": [
+            "size",
+            "max_price"
+          ],
+          "reason": "Previous search returned no results; loosen filters without changing the item description.",
+          "result_count": 3
+        }
+      ],
+      "price_assessment": {
+        "assessment": "above comparable range",
+        "item_price": 24.0,
+        "comparable_count": 2,
+        "comparable_ids": [
+          "lst_002",
+          "lst_033"
+        ],
+        "comparable_prices": [
+          18.0,
+          19.0
+        ],
+        "median_price": 18.5,
+        "strategy": "same garment family/category with shared style tags; conditions may vary",
+        "reasoning": "$24 versus $18.5 median across 2 other mock listings; same garment family/category with shared style tags; conditions may vary. Fair means within 15% of the median. Asking prices only; not a market valuation."
+      },
+      "trend_info": {
+        "source": "Depop newsroom · 2026 annual trends report",
+        "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+        "published_at": "2025-12-20",
+        "retrieved_at": "2026-10-02T16:48:01.689431+00:00",
+        "terms": [
+          {
+            "term": "Modern Uniforms",
+            "keywords": [
+              "button",
+              "jackets",
+              "knits",
+              "neutral",
+              "peacoats",
+              "shirts",
+              "tailoring",
+              "workwear"
+            ]
+          },
+          {
+            "term": "Neo Nostalgia",
+            "keywords": [
+              "2000s",
+              "70s",
+              "90s",
+              "bandage",
+              "dresses",
+              "jorts",
+              "layering",
+              "medieval",
+              "nostalgia"
+            ]
+          },
+          {
+            "term": "Everyday Ceremony",
+            "keywords": [
+              "accessories",
+              "blazers",
+              "coats",
+              "heels",
+              "jewelry",
+              "metallic",
+              "skirts"
+            ]
+          },
+          {
+            "term": "Romanticized Sports",
+            "keywords": [
+              "athletic",
+              "ballet",
+              "jerseys",
+              "shorts",
+              "silk",
+              "ski",
+              "sportswear",
+              "tailoring",
+              "tennis",
+              "vintage"
+            ]
+          }
+        ],
+        "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+        "status": "cached",
+        "warning": "Verified snapshot retrieved within 24 hours; annual report, not daily trends.",
+        "relevant_trend": {
+          "term": "Romanticized Sports",
+          "keywords": [
+            "athletic",
+            "ballet",
+            "jerseys",
+            "shorts",
+            "silk",
+            "ski",
+            "sportswear",
+            "tailoring",
+            "tennis",
+            "vintage"
+          ]
+        }
+      },
+      "style_profile_used": {
+        "likes": [],
+        "dislikes": [],
+        "updated_at": null,
+        "warning": null
+      },
+      "warnings": [
+        "Search fallback removed size, max_price. Check the listed size and price against your original request.",
+        "Verified snapshot retrieved within 24 hours; annual report, not daily trends."
+      ]
+    },
+    "price": {
+      "assessment": "good deal",
+      "item_price": 18.0,
+      "comparable_count": 2,
+      "comparable_ids": [
+        "lst_006",
+        "lst_033"
+      ],
+      "comparable_prices": [
+        24.0,
+        19.0
+      ],
+      "median_price": 21.5,
+      "strategy": "same garment family/category with shared style tags; conditions may vary",
+      "reasoning": "$18 versus $21.5 median across 2 other mock listings; same garment family/category with shared style tags; conditions may vary. Fair means within 15% of the median. Asking prices only; not a market valuation."
+    },
+    "trend": {
+      "source": "Depop newsroom · 2026 annual trends report",
+      "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+      "published_at": "2025-12-20",
+      "retrieved_at": "2026-10-02T16:48:01.689431+00:00",
+      "terms": [
+        {
+          "term": "Modern Uniforms",
+          "keywords": [
+            "button",
+            "jackets",
+            "knits",
+            "neutral",
+            "peacoats",
+            "shirts",
+            "tailoring",
+            "workwear"
+          ]
+        },
+        {
+          "term": "Neo Nostalgia",
+          "keywords": [
+            "2000s",
+            "70s",
+            "90s",
+            "bandage",
+            "dresses",
+            "jorts",
+            "layering",
+            "medieval",
+            "nostalgia"
+          ]
+        },
+        {
+          "term": "Everyday Ceremony",
+          "keywords": [
+            "accessories",
+            "blazers",
+            "coats",
+            "heels",
+            "jewelry",
+            "metallic",
+            "skirts"
+          ]
+        },
+        {
+          "term": "Romanticized Sports",
+          "keywords": [
+            "athletic",
+            "ballet",
+            "jerseys",
+            "shorts",
+            "silk",
+            "ski",
+            "sportswear",
+            "tailoring",
+            "tennis",
+            "vintage"
+          ]
+        }
+      ],
+      "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+      "status": "cached",
+      "warning": "Verified snapshot retrieved within 24 hours; annual report, not daily trends.",
+      "relevant_trend": {
+        "term": "Neo Nostalgia",
+        "keywords": [
+          "2000s",
+          "70s",
+          "90s",
+          "bandage",
+          "dresses",
+          "jorts",
+          "layering",
+          "medieval",
+          "nostalgia"
+        ]
+      }
+    },
+    "memory": {
+      "first": {
+        "query": "vintage graphic tee under $30, size M. I prefer baggy streetwear and chunky sneakers.",
+        "parsed": {
+          "description": "vintage graphic tee",
+          "size": "M",
+          "max_price": 30.0
+        },
+        "search_results": [
+          {
+            "id": "lst_002",
+            "title": "Y2K Baby Tee — Butterfly Print",
+            "description": "Super cute early 2000s baby tee with butterfly graphic. Fitted crop length. Tag says medium but fits like a small.",
+            "category": "tops",
+            "style_tags": [
+              "y2k",
+              "vintage",
+              "graphic tee",
+              "cottagecore"
+            ],
+            "size": "S/M",
+            "condition": "excellent",
+            "price": 18.0,
+            "colors": [
+              "white",
+              "pink",
+              "purple"
+            ],
+            "brand": null,
+            "platform": "depop"
+          }
+        ],
+        "selected_item": {
+          "id": "lst_002",
+          "title": "Y2K Baby Tee — Butterfly Print",
+          "description": "Super cute early 2000s baby tee with butterfly graphic. Fitted crop length. Tag says medium but fits like a small.",
+          "category": "tops",
+          "style_tags": [
+            "y2k",
+            "vintage",
+            "graphic tee",
+            "cottagecore"
+          ],
+          "size": "S/M",
+          "condition": "excellent",
+          "price": 18.0,
+          "colors": [
+            "white",
+            "pink",
+            "purple"
+          ],
+          "brand": null,
+          "platform": "depop"
+        },
+        "wardrobe": {
+          "items": [
+            {
+              "id": "w_001",
+              "name": "Baggy straight-leg jeans, dark wash",
+              "category": "bottoms",
+              "colors": [
+                "dark blue",
+                "indigo"
+              ],
+              "style_tags": [
+                "denim",
+                "streetwear",
+                "baggy"
+              ],
+              "notes": "High-waisted, sits above the hip"
+            },
+            {
+              "id": "w_002",
+              "name": "Wide-leg khaki trousers",
+              "category": "bottoms",
+              "colors": [
+                "khaki",
+                "tan"
+              ],
+              "style_tags": [
+                "earth tones",
+                "minimal",
+                "wide-leg"
+              ],
+              "notes": null
+            },
+            {
+              "id": "w_003",
+              "name": "White ribbed tank top",
+              "category": "tops",
+              "colors": [
+                "white"
+              ],
+              "style_tags": [
+                "basics",
+                "minimal",
+                "fitted"
+              ],
+              "notes": "Goes with everything"
+            },
+            {
+              "id": "w_004",
+              "name": "Oversized grey crewneck sweatshirt",
+              "category": "tops",
+              "colors": [
+                "grey",
+                "charcoal"
+              ],
+              "style_tags": [
+                "oversized",
+                "basics",
+                "cozy"
+              ],
+              "notes": "Really oversized — drops below the hip"
+            },
+            {
+              "id": "w_005",
+              "name": "Black cropped zip hoodie",
+              "category": "tops",
+              "colors": [
+                "black"
+              ],
+              "style_tags": [
+                "athletic",
+                "streetwear",
+                "cropped"
+              ],
+              "notes": null
+            },
+            {
+              "id": "w_006",
+              "name": "Vintage black denim jacket",
+              "category": "outerwear",
+              "colors": [
+                "black"
+              ],
+              "style_tags": [
+                "denim",
+                "vintage",
+                "classic"
+              ],
+              "notes": "Slightly cropped"
+            },
+            {
+              "id": "w_007",
+              "name": "Chunky white sneakers",
+              "category": "shoes",
+              "colors": [
+                "white"
+              ],
+              "style_tags": [
+                "sneakers",
+                "chunky",
+                "streetwear"
+              ],
+              "notes": null
+            },
+            {
+              "id": "w_008",
+              "name": "Black combat boots",
+              "category": "shoes",
+              "colors": [
+                "black"
+              ],
+              "style_tags": [
+                "boots",
+                "grunge",
+                "classic"
+              ],
+              "notes": "Lace-up, mid-ankle height"
+            },
+            {
+              "id": "w_009",
+              "name": "Brown leather belt",
+              "category": "accessories",
+              "colors": [
+                "brown"
+              ],
+              "style_tags": [
+                "classic",
+                "earth tones",
+                "accessories"
+              ],
+              "notes": null
+            },
+            {
+              "id": "w_010",
+              "name": "Black crossbody bag",
+              "category": "accessories",
+              "colors": [
+                "black"
+              ],
+              "style_tags": [
+                "minimal",
+                "accessories",
+                "everyday"
+              ],
+              "notes": null
+            }
+          ],
+          "_style_profile": {
+            "likes": [
+              "baggy",
+              "chunky sneakers",
+              "streetwear"
+            ],
+            "dislikes": [],
+            "updated_at": "2026-10-02T16:48:01.952777+00:00",
+            "warning": null
+          },
+          "_trend_info": {
+            "source": "Depop newsroom · 2026 annual trends report",
+            "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+            "published_at": "2025-12-20",
+            "retrieved_at": "2026-10-02T16:48:01.689431+00:00",
+            "terms": [
+              {
+                "term": "Modern Uniforms",
+                "keywords": [
+                  "button",
+                  "jackets",
+                  "knits",
+                  "neutral",
+                  "peacoats",
+                  "shirts",
+                  "tailoring",
+                  "workwear"
+                ]
+              },
+              {
+                "term": "Neo Nostalgia",
+                "keywords": [
+                  "2000s",
+                  "70s",
+                  "90s",
+                  "bandage",
+                  "dresses",
+                  "jorts",
+                  "layering",
+                  "medieval",
+                  "nostalgia"
+                ]
+              },
+              {
+                "term": "Everyday Ceremony",
+                "keywords": [
+                  "accessories",
+                  "blazers",
+                  "coats",
+                  "heels",
+                  "jewelry",
+                  "metallic",
+                  "skirts"
+                ]
+              },
+              {
+                "term": "Romanticized Sports",
+                "keywords": [
+                  "athletic",
+                  "ballet",
+                  "jerseys",
+                  "shorts",
+                  "silk",
+                  "ski",
+                  "sportswear",
+                  "tailoring",
+                  "tennis",
+                  "vintage"
+                ]
+              }
+            ],
+            "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+            "status": "cached",
+            "warning": "Verified snapshot retrieved within 24 hours; annual report, not daily trends.",
+            "relevant_trend": {
+              "term": "Neo Nostalgia",
+              "keywords": [
+                "2000s",
+                "70s",
+                "90s",
+                "bandage",
+                "dresses",
+                "jorts",
+                "layering",
+                "medieval",
+                "nostalgia"
+              ]
+            }
+          }
+        },
+        "outfit_suggestion": null,
+        "fit_card": null,
+        "error": "Error: Outfit styling cannot access the configured Groq model (meta-llama/llama-4-scout-17b-16e-instruct). It may be retired; use a course-approved supported model, then retry.",
+        "stage": "error",
+        "tool_trace": [
+          {
+            "tool": "search_listings",
+            "inputs": {
+              "description": "vintage graphic tee",
+              "size": "M",
+              "max_price": 30.0
+            },
+            "output": {
+              "result_count": 1
+            },
+            "transition": "search -> context"
+          },
+          {
+            "tool": "compare_price",
+            "inputs": {
+              "item_id": "lst_002"
+            },
+            "output": {
+              "status": "good deal"
+            },
+            "transition": "context -> context"
+          },
+          {
+            "tool": "get_trends",
+            "inputs": {
+              "item_id": "lst_002"
+            },
+            "output": {
+              "status": "cached"
+            },
+            "transition": "context -> context"
+          },
+          {
+            "tool": "suggest_outfit",
+            "inputs": {
+              "item_id": "lst_002",
+              "wardrobe_count": 10
+            },
+            "output": {
+              "success": false
+            },
+            "transition": "outfit -> error"
+          }
+        ],
+        "retry_history": [
+          {
+            "attempt": 1,
+            "original_constraints": {
+              "description": "vintage graphic tee",
+              "size": "M",
+              "max_price": 30.0
+            },
+            "constraints": {
+              "description": "vintage graphic tee",
+              "size": "M",
+              "max_price": 30.0
+            },
+            "changed": [],
+            "reason": "initial search",
+            "result_count": 1
+          }
+        ],
+        "price_assessment": {
+          "assessment": "good deal",
+          "item_price": 18.0,
+          "comparable_count": 2,
+          "comparable_ids": [
+            "lst_006",
+            "lst_033"
+          ],
+          "comparable_prices": [
+            24.0,
+            19.0
+          ],
+          "median_price": 21.5,
+          "strategy": "same garment family/category with shared style tags; conditions may vary",
+          "reasoning": "$18 versus $21.5 median across 2 other mock listings; same garment family/category with shared style tags; conditions may vary. Fair means within 15% of the median. Asking prices only; not a market valuation."
+        },
+        "trend_info": {
+          "source": "Depop newsroom · 2026 annual trends report",
+          "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+          "published_at": "2025-12-20",
+          "retrieved_at": "2026-10-02T16:48:01.689431+00:00",
+          "terms": [
+            {
+              "term": "Modern Uniforms",
+              "keywords": [
+                "button",
+                "jackets",
+                "knits",
+                "neutral",
+                "peacoats",
+                "shirts",
+                "tailoring",
+                "workwear"
+              ]
+            },
+            {
+              "term": "Neo Nostalgia",
+              "keywords": [
+                "2000s",
+                "70s",
+                "90s",
+                "bandage",
+                "dresses",
+                "jorts",
+                "layering",
+                "medieval",
+                "nostalgia"
+              ]
+            },
+            {
+              "term": "Everyday Ceremony",
+              "keywords": [
+                "accessories",
+                "blazers",
+                "coats",
+                "heels",
+                "jewelry",
+                "metallic",
+                "skirts"
+              ]
+            },
+            {
+              "term": "Romanticized Sports",
+              "keywords": [
+                "athletic",
+                "ballet",
+                "jerseys",
+                "shorts",
+                "silk",
+                "ski",
+                "sportswear",
+                "tailoring",
+                "tennis",
+                "vintage"
+              ]
+            }
+          ],
+          "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+          "status": "cached",
+          "warning": "Verified snapshot retrieved within 24 hours; annual report, not daily trends.",
+          "relevant_trend": {
+            "term": "Neo Nostalgia",
+            "keywords": [
+              "2000s",
+              "70s",
+              "90s",
+              "bandage",
+              "dresses",
+              "jorts",
+              "layering",
+              "medieval",
+              "nostalgia"
+            ]
+          }
+        },
+        "style_profile_used": {
+          "likes": [
+            "baggy",
+            "chunky sneakers",
+            "streetwear"
+          ],
+          "dislikes": [],
+          "updated_at": "2026-10-02T16:48:01.952777+00:00",
+          "warning": null
+        },
+        "warnings": [
+          "Verified snapshot retrieved within 24 hours; annual report, not daily trends."
+        ]
+      },
+      "new_process_profile": {
+        "likes": [
+          "baggy",
+          "chunky sneakers",
+          "streetwear"
+        ],
+        "dislikes": [],
+        "updated_at": "2026-10-02T16:48:01.952777+00:00",
+        "warning": null
+      },
+      "second": {
+        "query": "90s track jacket size M under $50",
+        "parsed": {
+          "description": "90s track jacket",
+          "size": "M",
+          "max_price": 50.0
+        },
+        "search_results": [
+          {
+            "id": "lst_004",
+            "title": "90s Track Jacket — Navy/White Stripe",
+            "description": "Authentic 90s track jacket with stripe detail down the sleeves. Full zip. Lightweight — great for layering.",
+            "category": "outerwear",
+            "style_tags": [
+              "90s",
+              "vintage",
+              "athletic",
+              "streetwear"
+            ],
+            "size": "M",
+            "condition": "excellent",
+            "price": 45.0,
+            "colors": [
+              "navy",
+              "white"
+            ],
+            "brand": "Champion",
+            "platform": "poshmark"
+          },
+          {
+            "id": "lst_032",
+            "title": "Shacket — Olive Canvas",
+            "description": "Olive canvas shacket — thicker than a shirt, lighter than a jacket. Chest pockets, button-front. Great transitional layer.",
+            "category": "outerwear",
+            "style_tags": [
+              "earth tones",
+              "classic",
+              "layering",
+              "minimal"
+            ],
+            "size": "M/L",
+            "condition": "excellent",
+            "price": 33.0,
+            "colors": [
+              "olive",
+              "green"
+            ],
+            "brand": null,
+            "platform": "poshmark"
+          }
+        ],
+        "selected_item": {
+          "id": "lst_004",
+          "title": "90s Track Jacket — Navy/White Stripe",
+          "description": "Authentic 90s track jacket with stripe detail down the sleeves. Full zip. Lightweight — great for layering.",
+          "category": "outerwear",
+          "style_tags": [
+            "90s",
+            "vintage",
+            "athletic",
+            "streetwear"
+          ],
+          "size": "M",
+          "condition": "excellent",
+          "price": 45.0,
+          "colors": [
+            "navy",
+            "white"
+          ],
+          "brand": "Champion",
+          "platform": "poshmark"
+        },
+        "wardrobe": {
+          "items": [
+            {
+              "id": "w_001",
+              "name": "Baggy straight-leg jeans, dark wash",
+              "category": "bottoms",
+              "colors": [
+                "dark blue",
+                "indigo"
+              ],
+              "style_tags": [
+                "denim",
+                "streetwear",
+                "baggy"
+              ],
+              "notes": "High-waisted, sits above the hip"
+            },
+            {
+              "id": "w_002",
+              "name": "Wide-leg khaki trousers",
+              "category": "bottoms",
+              "colors": [
+                "khaki",
+                "tan"
+              ],
+              "style_tags": [
+                "earth tones",
+                "minimal",
+                "wide-leg"
+              ],
+              "notes": null
+            },
+            {
+              "id": "w_003",
+              "name": "White ribbed tank top",
+              "category": "tops",
+              "colors": [
+                "white"
+              ],
+              "style_tags": [
+                "basics",
+                "minimal",
+                "fitted"
+              ],
+              "notes": "Goes with everything"
+            },
+            {
+              "id": "w_004",
+              "name": "Oversized grey crewneck sweatshirt",
+              "category": "tops",
+              "colors": [
+                "grey",
+                "charcoal"
+              ],
+              "style_tags": [
+                "oversized",
+                "basics",
+                "cozy"
+              ],
+              "notes": "Really oversized — drops below the hip"
+            },
+            {
+              "id": "w_005",
+              "name": "Black cropped zip hoodie",
+              "category": "tops",
+              "colors": [
+                "black"
+              ],
+              "style_tags": [
+                "athletic",
+                "streetwear",
+                "cropped"
+              ],
+              "notes": null
+            },
+            {
+              "id": "w_006",
+              "name": "Vintage black denim jacket",
+              "category": "outerwear",
+              "colors": [
+                "black"
+              ],
+              "style_tags": [
+                "denim",
+                "vintage",
+                "classic"
+              ],
+              "notes": "Slightly cropped"
+            },
+            {
+              "id": "w_007",
+              "name": "Chunky white sneakers",
+              "category": "shoes",
+              "colors": [
+                "white"
+              ],
+              "style_tags": [
+                "sneakers",
+                "chunky",
+                "streetwear"
+              ],
+              "notes": null
+            },
+            {
+              "id": "w_008",
+              "name": "Black combat boots",
+              "category": "shoes",
+              "colors": [
+                "black"
+              ],
+              "style_tags": [
+                "boots",
+                "grunge",
+                "classic"
+              ],
+              "notes": "Lace-up, mid-ankle height"
+            },
+            {
+              "id": "w_009",
+              "name": "Brown leather belt",
+              "category": "accessories",
+              "colors": [
+                "brown"
+              ],
+              "style_tags": [
+                "classic",
+                "earth tones",
+                "accessories"
+              ],
+              "notes": null
+            },
+            {
+              "id": "w_010",
+              "name": "Black crossbody bag",
+              "category": "accessories",
+              "colors": [
+                "black"
+              ],
+              "style_tags": [
+                "minimal",
+                "accessories",
+                "everyday"
+              ],
+              "notes": null
+            }
+          ],
+          "_style_profile": {
+            "likes": [
+              "baggy",
+              "chunky sneakers",
+              "streetwear"
+            ],
+            "dislikes": [],
+            "updated_at": "2026-10-02T16:48:01.952777+00:00",
+            "warning": null
+          },
+          "_trend_info": {
+            "source": "Depop newsroom · 2026 annual trends report",
+            "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+            "published_at": "2025-12-20",
+            "retrieved_at": "2026-10-02T16:48:01.689431+00:00",
+            "terms": [
+              {
+                "term": "Modern Uniforms",
+                "keywords": [
+                  "button",
+                  "jackets",
+                  "knits",
+                  "neutral",
+                  "peacoats",
+                  "shirts",
+                  "tailoring",
+                  "workwear"
+                ]
+              },
+              {
+                "term": "Neo Nostalgia",
+                "keywords": [
+                  "2000s",
+                  "70s",
+                  "90s",
+                  "bandage",
+                  "dresses",
+                  "jorts",
+                  "layering",
+                  "medieval",
+                  "nostalgia"
+                ]
+              },
+              {
+                "term": "Everyday Ceremony",
+                "keywords": [
+                  "accessories",
+                  "blazers",
+                  "coats",
+                  "heels",
+                  "jewelry",
+                  "metallic",
+                  "skirts"
+                ]
+              },
+              {
+                "term": "Romanticized Sports",
+                "keywords": [
+                  "athletic",
+                  "ballet",
+                  "jerseys",
+                  "shorts",
+                  "silk",
+                  "ski",
+                  "sportswear",
+                  "tailoring",
+                  "tennis",
+                  "vintage"
+                ]
+              }
+            ],
+            "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+            "status": "cached",
+            "warning": "Verified snapshot retrieved within 24 hours; annual report, not daily trends.",
+            "relevant_trend": {
+              "term": "Neo Nostalgia",
+              "keywords": [
+                "2000s",
+                "70s",
+                "90s",
+                "bandage",
+                "dresses",
+                "jorts",
+                "layering",
+                "medieval",
+                "nostalgia"
+              ]
+            }
+          }
+        },
+        "outfit_suggestion": null,
+        "fit_card": null,
+        "error": "Error: Outfit styling cannot access the configured Groq model (meta-llama/llama-4-scout-17b-16e-instruct). It may be retired; use a course-approved supported model, then retry.",
+        "stage": "error",
+        "tool_trace": [
+          {
+            "tool": "search_listings",
+            "inputs": {
+              "description": "90s track jacket",
+              "size": "M",
+              "max_price": 50.0
+            },
+            "output": {
+              "result_count": 2
+            },
+            "transition": "search -> context"
+          },
+          {
+            "tool": "compare_price",
+            "inputs": {
+              "item_id": "lst_004"
+            },
+            "output": {
+              "status": "fair price"
+            },
+            "transition": "context -> context"
+          },
+          {
+            "tool": "get_trends",
+            "inputs": {
+              "item_id": "lst_004"
+            },
+            "output": {
+              "status": "cached"
+            },
+            "transition": "context -> context"
+          },
+          {
+            "tool": "suggest_outfit",
+            "inputs": {
+              "item_id": "lst_004",
+              "wardrobe_count": 10
+            },
+            "output": {
+              "success": false
+            },
+            "transition": "outfit -> error"
+          }
+        ],
+        "retry_history": [
+          {
+            "attempt": 1,
+            "original_constraints": {
+              "description": "90s track jacket",
+              "size": "M",
+              "max_price": 50.0
+            },
+            "constraints": {
+              "description": "90s track jacket",
+              "size": "M",
+              "max_price": 50.0
+            },
+            "changed": [],
+            "reason": "initial search",
+            "result_count": 2
+          }
+        ],
+        "price_assessment": {
+          "assessment": "fair price",
+          "item_price": 45.0,
+          "comparable_count": 3,
+          "comparable_ids": [
+            "lst_007",
+            "lst_010",
+            "lst_022"
+          ],
+          "comparable_prices": [
+            42.0,
+            40.0,
+            75.0
+          ],
+          "median_price": 42.0,
+          "strategy": "same garment family/category with shared style tags; conditions may vary",
+          "reasoning": "$45 versus $42 median across 3 other mock listings; same garment family/category with shared style tags; conditions may vary. Fair means within 15% of the median. Asking prices only; not a market valuation."
+        },
+        "trend_info": {
+          "source": "Depop newsroom · 2026 annual trends report",
+          "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+          "published_at": "2025-12-20",
+          "retrieved_at": "2026-10-02T16:48:01.689431+00:00",
+          "terms": [
+            {
+              "term": "Modern Uniforms",
+              "keywords": [
+                "button",
+                "jackets",
+                "knits",
+                "neutral",
+                "peacoats",
+                "shirts",
+                "tailoring",
+                "workwear"
+              ]
+            },
+            {
+              "term": "Neo Nostalgia",
+              "keywords": [
+                "2000s",
+                "70s",
+                "90s",
+                "bandage",
+                "dresses",
+                "jorts",
+                "layering",
+                "medieval",
+                "nostalgia"
+              ]
+            },
+            {
+              "term": "Everyday Ceremony",
+              "keywords": [
+                "accessories",
+                "blazers",
+                "coats",
+                "heels",
+                "jewelry",
+                "metallic",
+                "skirts"
+              ]
+            },
+            {
+              "term": "Romanticized Sports",
+              "keywords": [
+                "athletic",
+                "ballet",
+                "jerseys",
+                "shorts",
+                "silk",
+                "ski",
+                "sportswear",
+                "tailoring",
+                "tennis",
+                "vintage"
+              ]
+            }
+          ],
+          "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+          "status": "cached",
+          "warning": "Verified snapshot retrieved within 24 hours; annual report, not daily trends.",
+          "relevant_trend": {
+            "term": "Neo Nostalgia",
+            "keywords": [
+              "2000s",
+              "70s",
+              "90s",
+              "bandage",
+              "dresses",
+              "jorts",
+              "layering",
+              "medieval",
+              "nostalgia"
+            ]
+          }
+        },
+        "style_profile_used": {
+          "likes": [
+            "baggy",
+            "chunky sneakers",
+            "streetwear"
+          ],
+          "dislikes": [],
+          "updated_at": "2026-10-02T16:48:01.952777+00:00",
+          "warning": null
+        },
+        "warnings": [
+          "Verified snapshot retrieved within 24 hours; annual report, not daily trends."
+        ]
+      },
+      "persisted_and_reused": true
+    }
+  },
+  "failed_scenarios": [
+    "happy",
+    "empty_wardrobe",
+    "retry",
+    "memory generation"
+  ]
+}

@@ -1,0 +1,730 @@
+
+=== Happy path ===
+{
+  "query": "vintage graphic tee under $30, size M",
+  "parsed": {
+    "description": "vintage graphic tee",
+    "size": "M",
+    "max_price": 30.0
+  },
+  "search_results": [
+    {
+      "id": "lst_002",
+      "title": "Y2K Baby Tee — Butterfly Print",
+      "description": "Super cute early 2000s baby tee with butterfly graphic. Fitted crop length. Tag says medium but fits like a small.",
+      "category": "tops",
+      "style_tags": [
+        "y2k",
+        "vintage",
+        "graphic tee",
+        "cottagecore"
+      ],
+      "size": "S/M",
+      "condition": "excellent",
+      "price": 18.0,
+      "colors": [
+        "white",
+        "pink",
+        "purple"
+      ],
+      "brand": null,
+      "platform": "depop"
+    }
+  ],
+  "selected_item": {
+    "id": "lst_002",
+    "title": "Y2K Baby Tee — Butterfly Print",
+    "description": "Super cute early 2000s baby tee with butterfly graphic. Fitted crop length. Tag says medium but fits like a small.",
+    "category": "tops",
+    "style_tags": [
+      "y2k",
+      "vintage",
+      "graphic tee",
+      "cottagecore"
+    ],
+    "size": "S/M",
+    "condition": "excellent",
+    "price": 18.0,
+    "colors": [
+      "white",
+      "pink",
+      "purple"
+    ],
+    "brand": null,
+    "platform": "depop"
+  },
+  "wardrobe": {
+    "items": [
+      {
+        "id": "w_001",
+        "name": "Baggy straight-leg jeans, dark wash",
+        "category": "bottoms",
+        "colors": [
+          "dark blue",
+          "indigo"
+        ],
+        "style_tags": [
+          "denim",
+          "streetwear",
+          "baggy"
+        ],
+        "notes": "High-waisted, sits above the hip"
+      },
+      {
+        "id": "w_002",
+        "name": "Wide-leg khaki trousers",
+        "category": "bottoms",
+        "colors": [
+          "khaki",
+          "tan"
+        ],
+        "style_tags": [
+          "earth tones",
+          "minimal",
+          "wide-leg"
+        ],
+        "notes": null
+      },
+      {
+        "id": "w_003",
+        "name": "White ribbed tank top",
+        "category": "tops",
+        "colors": [
+          "white"
+        ],
+        "style_tags": [
+          "basics",
+          "minimal",
+          "fitted"
+        ],
+        "notes": "Goes with everything"
+      },
+      {
+        "id": "w_004",
+        "name": "Oversized grey crewneck sweatshirt",
+        "category": "tops",
+        "colors": [
+          "grey",
+          "charcoal"
+        ],
+        "style_tags": [
+          "oversized",
+          "basics",
+          "cozy"
+        ],
+        "notes": "Really oversized — drops below the hip"
+      },
+      {
+        "id": "w_005",
+        "name": "Black cropped zip hoodie",
+        "category": "tops",
+        "colors": [
+          "black"
+        ],
+        "style_tags": [
+          "athletic",
+          "streetwear",
+          "cropped"
+        ],
+        "notes": null
+      },
+      {
+        "id": "w_006",
+        "name": "Vintage black denim jacket",
+        "category": "outerwear",
+        "colors": [
+          "black"
+        ],
+        "style_tags": [
+          "denim",
+          "vintage",
+          "classic"
+        ],
+        "notes": "Slightly cropped"
+      },
+      {
+        "id": "w_007",
+        "name": "Chunky white sneakers",
+        "category": "shoes",
+        "colors": [
+          "white"
+        ],
+        "style_tags": [
+          "sneakers",
+          "chunky",
+          "streetwear"
+        ],
+        "notes": null
+      },
+      {
+        "id": "w_008",
+        "name": "Black combat boots",
+        "category": "shoes",
+        "colors": [
+          "black"
+        ],
+        "style_tags": [
+          "boots",
+          "grunge",
+          "classic"
+        ],
+        "notes": "Lace-up, mid-ankle height"
+      },
+      {
+        "id": "w_009",
+        "name": "Brown leather belt",
+        "category": "accessories",
+        "colors": [
+          "brown"
+        ],
+        "style_tags": [
+          "classic",
+          "earth tones",
+          "accessories"
+        ],
+        "notes": null
+      },
+      {
+        "id": "w_010",
+        "name": "Black crossbody bag",
+        "category": "accessories",
+        "colors": [
+          "black"
+        ],
+        "style_tags": [
+          "minimal",
+          "accessories",
+          "everyday"
+        ],
+        "notes": null
+      }
+    ],
+    "_style_profile": {
+      "likes": [],
+      "dislikes": [],
+      "updated_at": null,
+      "warning": null
+    },
+    "_trend_info": {
+      "source": "Depop newsroom · 2026 annual trends report",
+      "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+      "published_at": "2025-12-20",
+      "retrieved_at": "2026-10-02T16:08:58.099314+00:00",
+      "terms": [
+        {
+          "term": "Modern Uniforms",
+          "keywords": [
+            "button",
+            "jackets",
+            "knits",
+            "neutral",
+            "peacoats",
+            "shirts",
+            "tailoring",
+            "workwear"
+          ]
+        },
+        {
+          "term": "Neo Nostalgia",
+          "keywords": [
+            "2000s",
+            "70s",
+            "90s",
+            "bandage",
+            "dresses",
+            "jorts",
+            "layering",
+            "medieval",
+            "nostalgia"
+          ]
+        },
+        {
+          "term": "Everyday Ceremony",
+          "keywords": [
+            "accessories",
+            "blazers",
+            "coats",
+            "heels",
+            "jewelry",
+            "metallic",
+            "skirts"
+          ]
+        },
+        {
+          "term": "Romanticized Sports",
+          "keywords": [
+            "athletic",
+            "ballet",
+            "jerseys",
+            "shorts",
+            "silk",
+            "ski",
+            "sportswear",
+            "tailoring",
+            "tennis",
+            "vintage"
+          ]
+        }
+      ],
+      "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+      "status": "cached",
+      "warning": "Verified snapshot retrieved within 24 hours; annual report, not daily trends.",
+      "relevant_trend": {
+        "term": "Neo Nostalgia",
+        "keywords": [
+          "2000s",
+          "70s",
+          "90s",
+          "bandage",
+          "dresses",
+          "jorts",
+          "layering",
+          "medieval",
+          "nostalgia"
+        ]
+      }
+    }
+  },
+  "outfit_suggestion": null,
+  "fit_card": null,
+  "error": "Error: Outfit styling cannot access the configured Groq model (meta-llama/llama-4-scout-17b-16e-instruct). It may be retired; use a course-approved supported model, then retry.",
+  "stage": "error",
+  "tool_trace": [
+    {
+      "tool": "search_listings",
+      "inputs": {
+        "description": "vintage graphic tee",
+        "size": "M",
+        "max_price": 30.0
+      },
+      "output": {
+        "result_count": 1
+      },
+      "transition": "search -> context"
+    },
+    {
+      "tool": "compare_price",
+      "inputs": {
+        "item_id": "lst_002"
+      },
+      "output": {
+        "status": "good deal"
+      },
+      "transition": "context -> context"
+    },
+    {
+      "tool": "get_trends",
+      "inputs": {
+        "item_id": "lst_002"
+      },
+      "output": {
+        "status": "cached"
+      },
+      "transition": "context -> context"
+    },
+    {
+      "tool": "suggest_outfit",
+      "inputs": {
+        "item_id": "lst_002",
+        "wardrobe_count": 10
+      },
+      "output": {
+        "success": false
+      },
+      "transition": "outfit -> error"
+    }
+  ],
+  "retry_history": [
+    {
+      "attempt": 1,
+      "original_constraints": {
+        "description": "vintage graphic tee",
+        "size": "M",
+        "max_price": 30.0
+      },
+      "constraints": {
+        "description": "vintage graphic tee",
+        "size": "M",
+        "max_price": 30.0
+      },
+      "changed": [],
+      "reason": "initial search",
+      "result_count": 1
+    }
+  ],
+  "price_assessment": {
+    "assessment": "good deal",
+    "item_price": 18.0,
+    "comparable_count": 2,
+    "comparable_ids": [
+      "lst_006",
+      "lst_033"
+    ],
+    "comparable_prices": [
+      24.0,
+      19.0
+    ],
+    "median_price": 21.5,
+    "strategy": "same garment family/category with shared style tags; conditions may vary",
+    "reasoning": "$18 versus $21.5 median across 2 other mock listings; same garment family/category with shared style tags; conditions may vary. Fair means within 15% of the median. Asking prices only; not a market valuation."
+  },
+  "trend_info": {
+    "source": "Depop newsroom · 2026 annual trends report",
+    "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+    "published_at": "2025-12-20",
+    "retrieved_at": "2026-10-02T16:08:58.099314+00:00",
+    "terms": [
+      {
+        "term": "Modern Uniforms",
+        "keywords": [
+          "button",
+          "jackets",
+          "knits",
+          "neutral",
+          "peacoats",
+          "shirts",
+          "tailoring",
+          "workwear"
+        ]
+      },
+      {
+        "term": "Neo Nostalgia",
+        "keywords": [
+          "2000s",
+          "70s",
+          "90s",
+          "bandage",
+          "dresses",
+          "jorts",
+          "layering",
+          "medieval",
+          "nostalgia"
+        ]
+      },
+      {
+        "term": "Everyday Ceremony",
+        "keywords": [
+          "accessories",
+          "blazers",
+          "coats",
+          "heels",
+          "jewelry",
+          "metallic",
+          "skirts"
+        ]
+      },
+      {
+        "term": "Romanticized Sports",
+        "keywords": [
+          "athletic",
+          "ballet",
+          "jerseys",
+          "shorts",
+          "silk",
+          "ski",
+          "sportswear",
+          "tailoring",
+          "tennis",
+          "vintage"
+        ]
+      }
+    ],
+    "content_sha256": "232c95254e2b45e9ef2957637d8a5cdc8c65cd68771b0881017cbbdc4c7031c0",
+    "status": "cached",
+    "warning": "Verified snapshot retrieved within 24 hours; annual report, not daily trends.",
+    "relevant_trend": {
+      "term": "Neo Nostalgia",
+      "keywords": [
+        "2000s",
+        "70s",
+        "90s",
+        "bandage",
+        "dresses",
+        "jorts",
+        "layering",
+        "medieval",
+        "nostalgia"
+      ]
+    }
+  },
+  "style_profile_used": {
+    "likes": [],
+    "dislikes": [],
+    "updated_at": null,
+    "warning": null
+  },
+  "warnings": [
+    "Verified snapshot retrieved within 24 hours; annual report, not daily trends."
+  ]
+}
+
+=== Deliberate no-results ===
+{
+  "query": "designer ballgown size XXS under $5",
+  "parsed": {
+    "description": "designer ballgown",
+    "size": "XXS",
+    "max_price": 5.0
+  },
+  "search_results": [],
+  "selected_item": null,
+  "wardrobe": {
+    "items": [
+      {
+        "id": "w_001",
+        "name": "Baggy straight-leg jeans, dark wash",
+        "category": "bottoms",
+        "colors": [
+          "dark blue",
+          "indigo"
+        ],
+        "style_tags": [
+          "denim",
+          "streetwear",
+          "baggy"
+        ],
+        "notes": "High-waisted, sits above the hip"
+      },
+      {
+        "id": "w_002",
+        "name": "Wide-leg khaki trousers",
+        "category": "bottoms",
+        "colors": [
+          "khaki",
+          "tan"
+        ],
+        "style_tags": [
+          "earth tones",
+          "minimal",
+          "wide-leg"
+        ],
+        "notes": null
+      },
+      {
+        "id": "w_003",
+        "name": "White ribbed tank top",
+        "category": "tops",
+        "colors": [
+          "white"
+        ],
+        "style_tags": [
+          "basics",
+          "minimal",
+          "fitted"
+        ],
+        "notes": "Goes with everything"
+      },
+      {
+        "id": "w_004",
+        "name": "Oversized grey crewneck sweatshirt",
+        "category": "tops",
+        "colors": [
+          "grey",
+          "charcoal"
+        ],
+        "style_tags": [
+          "oversized",
+          "basics",
+          "cozy"
+        ],
+        "notes": "Really oversized — drops below the hip"
+      },
+      {
+        "id": "w_005",
+        "name": "Black cropped zip hoodie",
+        "category": "tops",
+        "colors": [
+          "black"
+        ],
+        "style_tags": [
+          "athletic",
+          "streetwear",
+          "cropped"
+        ],
+        "notes": null
+      },
+      {
+        "id": "w_006",
+        "name": "Vintage black denim jacket",
+        "category": "outerwear",
+        "colors": [
+          "black"
+        ],
+        "style_tags": [
+          "denim",
+          "vintage",
+          "classic"
+        ],
+        "notes": "Slightly cropped"
+      },
+      {
+        "id": "w_007",
+        "name": "Chunky white sneakers",
+        "category": "shoes",
+        "colors": [
+          "white"
+        ],
+        "style_tags": [
+          "sneakers",
+          "chunky",
+          "streetwear"
+        ],
+        "notes": null
+      },
+      {
+        "id": "w_008",
+        "name": "Black combat boots",
+        "category": "shoes",
+        "colors": [
+          "black"
+        ],
+        "style_tags": [
+          "boots",
+          "grunge",
+          "classic"
+        ],
+        "notes": "Lace-up, mid-ankle height"
+      },
+      {
+        "id": "w_009",
+        "name": "Brown leather belt",
+        "category": "accessories",
+        "colors": [
+          "brown"
+        ],
+        "style_tags": [
+          "classic",
+          "earth tones",
+          "accessories"
+        ],
+        "notes": null
+      },
+      {
+        "id": "w_010",
+        "name": "Black crossbody bag",
+        "category": "accessories",
+        "colors": [
+          "black"
+        ],
+        "style_tags": [
+          "minimal",
+          "accessories",
+          "everyday"
+        ],
+        "notes": null
+      }
+    ],
+    "_style_profile": {
+      "likes": [],
+      "dislikes": [],
+      "updated_at": null,
+      "warning": null
+    }
+  },
+  "outfit_suggestion": null,
+  "fit_card": null,
+  "error": "No matching listings after all applicable retries. Broaden the description, remove the size filter, or increase the budget and retry.",
+  "stage": "error",
+  "tool_trace": [
+    {
+      "tool": "search_listings",
+      "inputs": {
+        "description": "designer ballgown",
+        "size": "XXS",
+        "max_price": 5.0
+      },
+      "output": {
+        "result_count": 0
+      },
+      "transition": "search -> search"
+    },
+    {
+      "tool": "search_listings",
+      "inputs": {
+        "description": "designer ballgown",
+        "size": null,
+        "max_price": 5.0
+      },
+      "output": {
+        "result_count": 0
+      },
+      "transition": "search -> search"
+    },
+    {
+      "tool": "search_listings",
+      "inputs": {
+        "description": "designer ballgown",
+        "size": null,
+        "max_price": null
+      },
+      "output": {
+        "result_count": 0
+      },
+      "transition": "search -> error"
+    }
+  ],
+  "retry_history": [
+    {
+      "attempt": 1,
+      "original_constraints": {
+        "description": "designer ballgown",
+        "size": "XXS",
+        "max_price": 5.0
+      },
+      "constraints": {
+        "description": "designer ballgown",
+        "size": "XXS",
+        "max_price": 5.0
+      },
+      "changed": [],
+      "reason": "initial search",
+      "result_count": 0
+    },
+    {
+      "attempt": 2,
+      "original_constraints": {
+        "description": "designer ballgown",
+        "size": "XXS",
+        "max_price": 5.0
+      },
+      "constraints": {
+        "description": "designer ballgown",
+        "size": null,
+        "max_price": 5.0
+      },
+      "changed": [
+        "size"
+      ],
+      "reason": "Previous search returned no results; loosen filters without changing the item description.",
+      "result_count": 0
+    },
+    {
+      "attempt": 3,
+      "original_constraints": {
+        "description": "designer ballgown",
+        "size": "XXS",
+        "max_price": 5.0
+      },
+      "constraints": {
+        "description": "designer ballgown",
+        "size": null,
+        "max_price": null
+      },
+      "changed": [
+        "size",
+        "max_price"
+      ],
+      "reason": "Previous search returned no results; loosen filters without changing the item description.",
+      "result_count": 0
+    }
+  ],
+  "price_assessment": null,
+  "trend_info": null,
+  "style_profile_used": {
+    "likes": [],
+    "dislikes": [],
+    "updated_at": null,
+    "warning": null
+  },
+  "warnings": []
+}
