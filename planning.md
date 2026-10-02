@@ -164,3 +164,75 @@ Preserve `handle_query(user_query: str, wardrobe_choice: str) -> tuple[str, str,
 ## Tinker connection
 
 The Plant Advisor Tinker illustrates the same agent concepts: tools have defined interfaces, returned information changes subsequent actions, state/results flow into later decisions, and failures degrade gracefully. FitFindr applies those concepts to secondhand fashion. No separate Plant Advisor deliverable is needed or claimed.
+
+## Stretch plan — committed before stretch implementation
+
+### Price comparison (+2)
+
+`compare_price(item: dict) -> dict` lives in tools.py and uses load_listings(). Exclude the selected ID. Start with the same category AND garment family; do not compare tees to jackets. Prefer same-brand peers when at least two exist, otherwise shared style tags within that family, otherwise the garment family alone. Prefer equal-condition peers only if at least two remain; otherwise disclose mixed conditions. If fewer than two peers remain, report insufficient data, with real prices but no deal judgment. Do not fall back to unrelated categories.
+
+Return `assessment: str` (good deal/fair price/above comparable range/insufficient data/unavailable), `item_price: float | None`, `comparable_count: int`, `comparable_ids: list[str]`, `comparable_prices: list[float]`, `median_price: float | None`, `strategy: str`, `reasoning: str`. Compare to median using 0.85/1.15 bounds (inclusive middle band). Classroom asking prices only; not actual sales or market valuation. Invalid input/dataset failure yields unavailable plus an explanation. Agent calls once after selection, writes price_assessment, displays reasoning without preventing styling. Tests cover actual peers, threshold cases, no peers, exclusion of selected item, and dataset failure.
+
+### Persistent style memory (+2)
+
+In memory.py:
+- `load_style_profile() -> dict`: read validated `likes: list[str]`, `dislikes: list[str]`, `updated_at: str | None`, `warning: str | None`; missing file is an empty profile, malformed JSON/schema yields empty profile plus reset advice.
+- `update_style_profile(query: str) -> dict`: extract a bounded vocabulary of styles, silhouettes and colors from explicit preference clauses ('I prefer', 'I like', 'I love', 'I mostly wear', 'I avoid', 'I dislike'). Shopping descriptions alone never become permanent likes. Negated preference clauses become dislikes. New explicit preferences resolve previous opposites. Merge, atomically replace the local JSON, return actual profile and persistence warning when disk writes fail.
+- `reset_style_profile() -> str`: delete only this profile and return clear success/failure text.
+
+Default storage is repository-local `.fitfindr/style_profile.json`, gitignored. FITFINDR_STATE_DIR can isolate test/demo processes. This is a single-user localhost application, not a multi-user hosted service. Protect updates with a local process lock and atomic rename to prevent half-written files; no claim of multi-process transactional writes. Load/update after successful parsing, before search. Deep-copy the wardrobe, attach `_style_profile`, and store style_profile_used in session. Do not modify starter wardrobe or selected listing. Outfit tool uses the preferences when choosing IDs and explaining styling; UI displays exactly what was reused. Two interactions: `vintage graphic tee under $30, size M. I prefer baggy streetwear and chunky sneakers.` then `90s track jacket size M under $50`. Second query has no preference clause. Tests isolate storage, verify second-process loading, reset, malformed files, bounded vocabulary and negations.
+
+### Real trend awareness (+2)
+
+`get_trends(item: dict) -> dict` in trends.py. Runtime source: official [Depop 2026 report](https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/), published December 20, 2025, covering 2026. This URL returned HTTP 200 during planning. The more recent [August blog](https://www.depop.com/blog/trending-on-depop-august-26/) returned HTTP 403 to direct app access; prefer the reliable official annual source rather than invent current monthly data. Clearly label annual scope; a recent retrieval timestamp is not a recent publication date.
+
+Fetch with httpx, 6-second timeout, no unbounded retries, fixed HTTPS source URL. Parse actual HTML paragraph headings and their following text. Accept only the report's verified named headings: Modern Uniforms, Neo Nostalgia, Everyday Ceremony, Romanticized Sports. A heading must actually be present with a following paragraph. Extract garment/style keywords only when present in that paragraph; no manufactured popularity counts. Store only bounded structured terms/keywords, URL, publication date, retrieval UTC timestamp and a SHA-256 digest of fetched HTML in `.fitfindr/trends.json`. No fabricated seeded cache.
+
+Return `status: str` (live/cached/unavailable), `source: str`, `source_url: str`, `published_at: str`, `retrieved_at: str | None`, `terms: list[dict]` (term and keywords), `relevant_trend: dict | None`, `warning: str | None`, `content_sha256: str | None`. Determine relevance by token overlap against the selected item's title/style tags/description. No overlap means no forced trend. Prefer cache younger than 24 hours; thereafter attempt refresh. On failure use a previously validated snapshot at most 30 days old, explicitly cached with warning; older/malformed/no cache -> unavailable. Annual report is not treated as current after its coverage year. Cache write failure does not discard a verified live response.
+
+Agent stores trend_info and puts it in wardrobe `_trend_info`. suggest_outfit's unchanged two-argument interface uses it. When a relevant term exists the model must return `trend_used` matching that term plus `trend_application` describing how the selected pieces express it; validate and append a visible attributed trend note to the actual suggestion. This context must affect styling, not merely a disconnected UI badge. Test mocked HTTP success, timeout/cache/no-cache, parser drift, stale cache, irrelevant items and generated prompt/output influence. Record live source retrieval and styling evidence after model access is resolved.
+
+### Retry fallback (+1)
+
+Only after an empty search: remove requested size while preserving description and max_price; if still empty remove max_price (size remains absent). If a filter was already absent skip that identical attempt. Bound to at most three distinct searches. Never change description. A malformed constraint or missing dataset is not a zero-result retry.
+
+Store every attempt in retry_history: `attempt`, `original_constraints`, `constraints`, `changed`, `reason`, `result_count`. First record has changed=[]; later records identify exactly removed filters. Keep parsed as original request. Update search_results on each attempt and select only from the successful result. Warn in the listing panel that size and/or price may not satisfy the original request. If all attempts fail, stop before styling, with broadening/removing-size/increasing-budget advice. Tests verify no unnecessary retries, staged recovery, exact changed filters, and final termination without downstream calls.
+
+### Expanded state/architecture and verification
+
+Add retry_history=[], price_assessment=None, trend_info=None, style_profile_used={}, warnings=[] to _new_session. These are all public demo context, never secrets. Optional tool errors append warnings and continue core generation. Handle failures locally with actionable messages. The compatibility handler remains three outputs; a UI wrapper may additionally return details/trace in a fourth, separate accordion, and a reset button changes only memory.
+
+```mermaid
+flowchart TD
+    Q[Query] --> P[Parser]
+    P --> M[Load/update persistent preferences]
+    M <--> DB[(Ignored local profile)]
+    M --> L[Planning loop]
+    L --> S[search_listings]
+    S -->|empty| R[Drop size then budget; preserve description]
+    R -->|untried constraints| S
+    R -->|exhausted| E[Actionable error / stop]
+    S -->|results| I[session.selected_item]
+    I --> PC[compare_price from starter peers]
+    I --> T[get_trends from official Depop report]
+    T <--> TC[(Verified local trend cache)]
+    PC --> ST[(Session state)]
+    M --> ST
+    T --> ST
+    I --> ST
+    ST --> W[Copied wardrobe plus profile/trend context]
+    W --> O[suggest_outfit with same selected item]
+    O -->|valid| OS[session.outfit_suggestion]
+    O -->|Error| E
+    OS --> C[create_fit_card with exact outfit string]
+    C -->|Error| E
+    C --> FC[session.fit_card]
+    FC --> UI[Three outputs plus context / trace / reset]
+    ST --> UI
+```
+
+Stretch tests will run with a temporary profile directory and mocked network by default; unit tests must never touch real user state. Final harness runs actual APIs, records provenance/status, checks two interactions and new-process memory reuse, captures tool/state flow, and starts/stops the Gradio server. Save genuine output only. A rubric audit will distinguish supported implementation evidence from any remaining video/model limitations.
+
+## Verified development issue before stretch
+
+Required tool tests: 34 passed before agent wiring. Required suite: 57 passed. A genuine Groq request returned HTTP 404, code `model_not_found`, for Scout; model listing confirmed it absent. [Groq's deprecation notice](https://console.groq.com/docs/deprecations) states shutdown July 17, 2026. The requested replacement `openai/gpt-oss-120b` is available, but switching models awaits the user's response because the original instructions explicitly specified Scout. No successful live generation is claimed at this checkpoint. This availability finding is a real potential divergence from the original specification, not an invented reflection.
