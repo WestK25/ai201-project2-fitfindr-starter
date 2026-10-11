@@ -1,0 +1,342 @@
+{
+  "ran_at": "2026-10-11T15:11:06.058554+00:00",
+  "model": "openai/gpt-oss-120b",
+  "url": "http://127.0.0.1:53463",
+  "http_config": "200 OK",
+  "components": 18,
+  "event_api": "handle_query_with_details",
+  "empty_query_result": [
+    "Enter an item, for example: vintage graphic tee under $30, size M.",
+    "",
+    ""
+  ],
+  "happy_query": "vintage graphic tee under $30, size M",
+  "happy_outputs": [
+    "Y2K Baby Tee — Butterfly Print\n$18.00 · depop · excellent\nSize: S/M\nBrand: Not listed\nColors: white, pink, purple\n\nSuper cute early 2000s baby tee with butterfly graphic. Fitted crop length. Tag says medium but fits like a small.\n\nClassroom mock listing; not live inventory.\n\nPrice check: good deal\n$18 versus $21.5 median across 2 other mock listings; same garment family/category with shared style tags; conditions may vary. Fair means within 15% of the median. Asking prices only; not a market valuation.",
+    "Outfit 1: Y2K Baby Tee — Butterfly Print + Baggy straight-leg jeans, dark wash; Vintage black denim jacket; Chunky white sneakers. Tuck the cropped Y2K butterfly tee into the high‑waisted baggy straight‑leg jeans for a sleek silhouette, layer the vintage black denim jacket over the tee, and finish with chunky white sneakers for a street‑ready Neo Nostalgia vibe.\n\nOutfit 2: Y2K Baby Tee — Butterfly Print + Wide-leg khaki trousers; Black cropped zip hoodie; Black combat boots. Pair the baby tee with wide‑leg khaki trousers, let the black cropped zip hoodie hang open for relaxed layering, and anchor the look with black combat boots, channeling the 2000s‑meets‑70s nostalgia trend.\n\nTrend note — Neo Nostalgia: Both outfits blend early‑2000s graphics with vintage denim and relaxed tailoring, echoing the Neo Nostalgia mix of retro silhouettes and modern streetwear. (Depop newsroom · 2026 annual trends report; published 2025-12-20; live, retrieved 2026-10-11T15:11:25.221127+00:00). Source: https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+    "Found my Y2K Baby Tee — Butterfly Print for $18 on depop. The combo of a cropped butterfly‑print tee, high‑waisted baggy jeans, and chunky white sneakers nails a fresh Neo‑Nostalgia street vibe that feels both retro and runway‑ready. Layering the vintage black denim jacket adds a gritty edge, while the sleek silhouette keeps the look playful and effortlessly cool."
+  ],
+  "happy_details": {
+    "parsed": {
+      "description": "vintage graphic tee",
+      "size": "M",
+      "max_price": 30.0
+    },
+    "style_profile_used": {
+      "likes": [],
+      "dislikes": [],
+      "updated_at": null,
+      "warning": null
+    },
+    "retry_history": [
+      {
+        "attempt": 1,
+        "original_constraints": {
+          "description": "vintage graphic tee",
+          "size": "M",
+          "max_price": 30.0
+        },
+        "constraints": {
+          "description": "vintage graphic tee",
+          "size": "M",
+          "max_price": 30.0
+        },
+        "changed": [],
+        "reason": "initial search",
+        "result_count": 1
+      }
+    ],
+    "price_assessment": {
+      "assessment": "good deal",
+      "item_price": 18.0,
+      "comparable_count": 2,
+      "comparable_ids": [
+        "lst_006",
+        "lst_033"
+      ],
+      "comparable_prices": [
+        24.0,
+        19.0
+      ],
+      "median_price": 21.5,
+      "strategy": "same garment family/category with shared style tags; conditions may vary",
+      "reasoning": "$18 versus $21.5 median across 2 other mock listings; same garment family/category with shared style tags; conditions may vary. Fair means within 15% of the median. Asking prices only; not a market valuation."
+    },
+    "trend_info": {
+      "source": "Depop newsroom · 2026 annual trends report",
+      "source_url": "https://news.depop.com/company-news/depop-unveils-2026-fashion-trends-report-the-edited-self/",
+      "published_at": "2025-12-20",
+      "retrieved_at": "2026-10-11T15:11:25.221127+00:00",
+      "terms": [
+        {
+          "term": "Modern Uniforms",
+          "keywords": [
+            "button",
+            "jackets",
+            "knits",
+            "neutral",
+            "peacoats",
+            "shirts",
+            "tailoring",
+            "workwear"
+          ]
+        },
+        {
+          "term": "Neo Nostalgia",
+          "keywords": [
+            "2000s",
+            "70s",
+            "90s",
+            "bandage",
+            "dresses",
+            "jorts",
+            "layering",
+            "medieval",
+            "nostalgia"
+          ]
+        },
+        {
+          "term": "Everyday Ceremony",
+          "keywords": [
+            "accessories",
+            "blazers",
+            "coats",
+            "heels",
+            "jewelry",
+            "metallic",
+            "skirts"
+          ]
+        },
+        {
+          "term": "Romanticized Sports",
+          "keywords": [
+            "athletic",
+            "ballet",
+            "jerseys",
+            "shorts",
+            "silk",
+            "ski",
+            "sportswear",
+            "tailoring",
+            "tennis",
+            "vintage"
+          ]
+        }
+      ],
+      "content_sha256": "085e5cc06970f86bdb009fdeabcd2fd49051a3d9dc1bdd5f7241e297fdc5c6ed",
+      "status": "live",
+      "warning": null,
+      "relevant_trend": {
+        "term": "Neo Nostalgia",
+        "keywords": [
+          "2000s",
+          "70s",
+          "90s",
+          "bandage",
+          "dresses",
+          "jorts",
+          "layering",
+          "medieval",
+          "nostalgia"
+        ]
+      }
+    },
+    "tool_trace": [
+      {
+        "tool": "search_listings",
+        "inputs": {
+          "description": "vintage graphic tee",
+          "size": "M",
+          "max_price": 30.0
+        },
+        "output": {
+          "result_count": 1
+        },
+        "transition": "search -> context"
+      },
+      {
+        "tool": "compare_price",
+        "inputs": {
+          "item_id": "lst_002"
+        },
+        "output": {
+          "status": "good deal"
+        },
+        "transition": "context -> context"
+      },
+      {
+        "tool": "get_trends",
+        "inputs": {
+          "item_id": "lst_002"
+        },
+        "output": {
+          "status": "live"
+        },
+        "transition": "context -> context"
+      },
+      {
+        "tool": "suggest_outfit",
+        "inputs": {
+          "item_id": "lst_002",
+          "wardrobe_count": 10
+        },
+        "output": {
+          "success": true
+        },
+        "transition": "outfit -> card"
+      },
+      {
+        "tool": "create_fit_card",
+        "inputs": {
+          "item_id": "lst_002",
+          "outfit_source": "session.outfit_suggestion",
+          "outfit_characters": 1090
+        },
+        "output": {
+          "success": true
+        },
+        "transition": "card -> done"
+      }
+    ]
+  },
+  "validation": {
+    "checks": {
+      "outfit_nonempty": true,
+      "selected_item_named": true,
+      "owned_pieces_are_real": true,
+      "caption_sentence_count_valid": true,
+      "caption_item_once": true,
+      "caption_price_once": true,
+      "caption_platform_once": true,
+      "all_three_required_tools": true,
+      "real_trend_application_visible": true
+    },
+    "all_passed": true,
+    "caption_sentence_count": 3,
+    "wardrobe_names_used": [
+      "Baggy straight-leg jeans, dark wash",
+      "Vintage black denim jacket",
+      "Chunky white sneakers",
+      "Wide-leg khaki trousers",
+      "Black cropped zip hoodie",
+      "Black combat boots"
+    ]
+  },
+  "failure_query": "designer ballgown size XXS under $5",
+  "failure_outputs": [
+    "No matching listings after all applicable retries. Broaden the description, remove the size filter, or increase the budget and retry.",
+    "",
+    ""
+  ],
+  "failure_details": {
+    "parsed": {
+      "description": "designer ballgown",
+      "size": "XXS",
+      "max_price": 5.0
+    },
+    "style_profile_used": {
+      "likes": [],
+      "dislikes": [],
+      "updated_at": null,
+      "warning": null
+    },
+    "retry_history": [
+      {
+        "attempt": 1,
+        "original_constraints": {
+          "description": "designer ballgown",
+          "size": "XXS",
+          "max_price": 5.0
+        },
+        "constraints": {
+          "description": "designer ballgown",
+          "size": "XXS",
+          "max_price": 5.0
+        },
+        "changed": [],
+        "reason": "initial search",
+        "result_count": 0
+      },
+      {
+        "attempt": 2,
+        "original_constraints": {
+          "description": "designer ballgown",
+          "size": "XXS",
+          "max_price": 5.0
+        },
+        "constraints": {
+          "description": "designer ballgown",
+          "size": null,
+          "max_price": 5.0
+        },
+        "changed": [
+          "size"
+        ],
+        "reason": "Previous search returned no results; loosen filters without changing the item description.",
+        "result_count": 0
+      },
+      {
+        "attempt": 3,
+        "original_constraints": {
+          "description": "designer ballgown",
+          "size": "XXS",
+          "max_price": 5.0
+        },
+        "constraints": {
+          "description": "designer ballgown",
+          "size": null,
+          "max_price": null
+        },
+        "changed": [
+          "size",
+          "max_price"
+        ],
+        "reason": "Previous search returned no results; loosen filters without changing the item description.",
+        "result_count": 0
+      }
+    ],
+    "price_assessment": null,
+    "trend_info": null,
+    "tool_trace": [
+      {
+        "tool": "search_listings",
+        "inputs": {
+          "description": "designer ballgown",
+          "size": "XXS",
+          "max_price": 5.0
+        },
+        "output": {
+          "result_count": 0
+        },
+        "transition": "search -> search"
+      },
+      {
+        "tool": "search_listings",
+        "inputs": {
+          "description": "designer ballgown",
+          "size": null,
+          "max_price": 5.0
+        },
+        "output": {
+          "result_count": 0
+        },
+        "transition": "search -> search"
+      },
+      {
+        "tool": "search_listings",
+        "inputs": {
+          "description": "designer ballgown",
+          "size": null,
+          "max_price": null
+        },
+        "output": {
+          "result_count": 0
+        },
+        "transition": "search -> error"
+      }
+    ]
+  },
+  "deliberate_failure_passed": true,
+  "server_exit_code": 0,
+  "all_passed": true
+}

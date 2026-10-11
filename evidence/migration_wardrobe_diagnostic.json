@@ -1,0 +1,28 @@
+{
+  "ran_at": "2026-10-02T17:23:18.431343+00:00",
+  "model": "openai/gpt-oss-120b",
+  "error": "Error: Outfit styling could not generate a valid response. Check your Groq connection, model access or quota and retry.",
+  "response": {
+    "looks": [
+      {
+        "wardrobe_ids": [
+          "lst_002",
+          "w_001",
+          "w_007"
+        ],
+        "advice": "Pair the cropped butterfly\u2011print Y2K tee with the dark\u2011wash baggy straight\u2011leg jeans for a relaxed street\u2011wear vibe; let the tee peek out at the hem and finish with chunky white sneakers for a playful, early\u20112000s feel."
+      },
+      {
+        "wardrobe_ids": [
+          "lst_002",
+          "w_002",
+          "w_006",
+          "w_008"
+        ],
+        "advice": "Tuck the baby tee into the wide\u2011leg khaki trousers, layer the vintage black denim jacket over it, and ground the look with black combat boots for a Neo Nostalgia mix of 2000s graphics and retro utilitarian edge."
+      }
+    ],
+    "trend_used": "Neo Nostalgia",
+    "trend_application": "Both outfits blend Y2K graphic charm with vintage denim and utilitarian pieces, echoing the Neo Nostalgia trend\u2019s love for layered, era\u2011spanning styling."
+  }
+}

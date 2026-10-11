@@ -87,7 +87,9 @@ def test_example_wardrobe_and_request(item, groq_mock):
     result = tools.suggest_outfit(item, get_example_wardrobe())
     assert 'Baggy straight-leg jeans, dark wash' in result and 'Chunky white sneakers' in result
     call = client.chat.completions.create.call_args.kwargs
-    assert call['model'] == tools.MODEL and call['temperature'] == 0.5
+    assert call['model'] == 'openai/gpt-oss-120b' and call['temperature'] == 0.5
+    assert call['max_tokens'] == 2500
+    assert call['extra_body'] == {'reasoning_effort': 'low', 'include_reasoning': False}
     payload = json.loads(call['messages'][1]['content'])
     assert payload['new_item'] == item and len(payload['wardrobe']['items']) == 10
 
@@ -118,7 +120,7 @@ def test_caption_request_and_facts(item, groq_mock):
     assert item['title'] in result and '$18' in result and result.count('depop') == 1
     assert len(result.split('. ')) == 3
     call = client.chat.completions.create.call_args.kwargs
-    assert call['model'] == tools.MODEL and call['temperature'] == 0.85
+    assert call['model'] == 'openai/gpt-oss-120b' and call['temperature'] == 0.85
     assert json.loads(call['messages'][1]['content']) == {'outfit': 'Exact outfit input.', 'new_item': item}
 
 
@@ -139,3 +141,39 @@ def test_unavailable_model_error_is_actionable(item, groq_mock, monkeypatch):
     client.chat.completions.create.side_effect = NotFoundError('sensitive raw message', response=httpx.Response(404, request=httpx.Request('POST', 'https://api.groq.com')), body={'error': {'code': 'model_not_found'}})
     result = tools.suggest_outfit(item, get_example_wardrobe())
     assert 'course-approved supported model' in result and 'sensitive raw message' not in result
+
+
+def test_truncated_generation_is_rejected(item, groq_mock):
+    client = groq_mock({'looks': [{'wardrobe_ids': ['w_001', 'w_007'], 'advice': 'Valid-looking but truncated model output.'}]})
+    client.chat.completions.create.return_value.choices[0].finish_reason = 'length'
+    assert tools.suggest_outfit(item, get_example_wardrobe()).startswith('Error:')
+
+
+def test_request_schema_excludes_new_item_id(item, groq_mock):
+    client = groq_mock({'looks': [{'wardrobe_ids': ['w_001', 'w_007'], 'advice': 'Keep the silhouette relaxed with a light tuck.'}]})
+    tools.suggest_outfit(item, get_example_wardrobe())
+    format = client.chat.completions.create.call_args.kwargs['response_format']
+    schema = format['json_schema']['schema']
+    allowed = schema['properties']['looks']['items']['properties']['wardrobe_ids']['items']['enum']
+    assert format['type'] == 'json_schema' and format['json_schema']['strict'] is True
+    assert item['id'] not in allowed
+    assert set(allowed) == {x['id'] for x in get_example_wardrobe()['items']}
+
+
+def test_request_schema_places_verified_trend_at_root(item, groq_mock):
+    client = groq_mock({'looks': [{'wardrobe_ids': ['w_001'], 'advice': 'Relax the silhouette with a loose tuck.'}], 'trend_used': 'Neo Nostalgia', 'trend_application': 'The vintage tee and relaxed denim mix eras.'})
+    wardrobe = get_example_wardrobe() | {'_trend_info': {'relevant_trend': {'term': 'Neo Nostalgia'}, 'source': 'Verified fixture', 'published_at': '2025-12-20', 'status': 'cached', 'retrieved_at': '2026-10-02', 'source_url': 'https://example.com'}}
+    assert not tools.suggest_outfit(item, wardrobe).startswith('Error:')
+    schema = client.chat.completions.create.call_args.kwargs['response_format']['json_schema']['schema']
+    assert set(schema['required']) == {'looks', 'trend_used', 'trend_application'}
+    assert schema['properties']['trend_used']['enum'] == ['Neo Nostalgia']
+    assert 'trend_used' not in schema['properties']['looks']['items']['properties']
+
+
+def test_rate_limit_has_specific_retry_advice(item, groq_mock, monkeypatch):
+    from groq import RateLimitError
+    monkeypatch.setenv('GROQ_API_KEY', 'unit-test-placeholder')
+    client = groq_mock({})
+    client.chat.completions.create.side_effect = RateLimitError('sensitive rate details', response=httpx.Response(429, request=httpx.Request('POST', 'https://api.groq.com')), body=None)
+    result = tools.suggest_outfit(item, get_example_wardrobe())
+    assert 'Wait one minute' in result and 'sensitive rate details' not in result

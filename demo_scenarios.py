@@ -6,9 +6,10 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import time
 from tempfile import TemporaryDirectory
 
-from agent import run_agent
+from validation_helpers import run_observed_agent as run_agent, check_outputs
 from memory import reset_style_profile
 from tools import search_listings, suggest_outfit, create_fit_card, compare_price, MODEL
 from trends import get_trends
@@ -24,6 +25,13 @@ MEMORY_SECOND = '90s track jacket size M under $50'
 def run_scenarios(scenario):
     report = {'ran_at': datetime.now(timezone.utc).isoformat(), 'model': MODEL, 'scenarios': {}}
     results = report['scenarios']
+    if scenario == 'all':
+        item = search_listings('vintage graphic tee', 'M', 30)[0]
+        wardrobe = get_example_wardrobe()
+        outfit = suggest_outfit(item, wardrobe)
+        caption = create_fit_card(outfit, item)
+        results['standalone_tools'] = {'item': item, 'outfit': outfit, 'fit_card': caption,
+                                       'validation': check_outputs(item, wardrobe, outfit, caption)}
     if scenario in ('all', 'happy'):
         result = run_agent(HAPPY_QUERY, get_example_wardrobe())
         results['happy'] = result
@@ -53,16 +61,22 @@ def run_scenarios(scenario):
             'persisted_and_reused': first['style_profile_used']['likes'] == json.loads(child)['likes'] == second['style_profile_used']['likes'] and bool(second['style_profile_used']['likes'])}
     failures = []
     for name in ('happy', 'empty_wardrobe', 'retry'):
-        if name in results and results[name]['error']:
+        if name in results and (results[name]['error'] or not results[name].get('live_validation', {}).get('all_passed')):
             failures.append(name)
     if 'memory' in results:
         m = results['memory']
-        if not m['persisted_and_reused'] or m['first']['error'] or m['second']['error']:
+        if not m['persisted_and_reused'] or any(m[k]['error'] or not m[k].get('live_validation', {}).get('all_passed') for k in ('first', 'second')):
             failures.append('memory generation')
     if 'deliberate_failures' in results:
         f = results['deliberate_failures']
         if f['search_tool'] != [] or not f['agent']['error'] or any(t['tool'] == 'suggest_outfit' for t in f['agent']['tool_trace']) or not f['empty_caption'].startswith('Error:'):
             failures.append('failure guards')
+    if 'standalone_tools' in results and not results['standalone_tools']['validation']['all_passed']:
+        failures.append('standalone tools')
+    if 'price' in results and (results['price']['assessment'] == 'unavailable' or results['price']['comparable_count'] < 2):
+        failures.append('price comparison')
+    if 'trend' in results and (results['trend']['status'] == 'unavailable' or not results['trend']['relevant_trend']):
+        failures.append('real trend source')
     report['failed_scenarios'] = failures
     return report
 
@@ -71,7 +85,18 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--scenario', choices=['all', 'happy', 'failure', 'empty', 'retry', 'price', 'trend', 'memory'], default='all')
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--pace-seconds', type=float, default=15.0, help='Minimum spacing between real API requests; default respects the verified 8000-token/minute account limit.')
     args = parser.parse_args()
+    import tools
+    actual_generation = tools._generate_json
+    last_call = [0.0]
+    def paced_generation(system, payload, temperature):
+        remaining = max(0, min(args.pace_seconds, 30)) - (time.monotonic() - last_call[0])
+        if remaining > 0:
+            time.sleep(remaining)
+        last_call[0] = time.monotonic()
+        return actual_generation(system, payload, temperature)
+    tools._generate_json = paced_generation
     # Demo inputs are synthetic; never overwrite the actual local user's profile.
     with TemporaryDirectory(prefix='fitfindr-demo-') as directory:
         os.environ['FITFINDR_STATE_DIR'] = directory

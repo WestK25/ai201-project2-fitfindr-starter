@@ -1,5 +1,13 @@
-Zero-results TOOL: []
-Impossible AGENT: No matching listings. Broaden the description, remove the size filter, or increase the budget and retry.
-Tools called: ['search_listings']
-Empty caption: Error: A valid outfit suggestion is required before creating a fit card.
-LIVE empty wardrobe: Error: Outfit styling could not generate a valid response. Check your Groq connection, model access or quota and retry.
+{
+  "ran_at": "2026-10-11T15:15:02.887366+00:00",
+  "model": "openai/gpt-oss-120b",
+  "search_zero_results": [],
+  "impossible_agent_error": "No matching listings after all applicable retries. Broaden the description, remove the size filter, or increase the budget and retry.",
+  "impossible_agent_tools": [
+    "search_listings",
+    "search_listings",
+    "search_listings"
+  ],
+  "empty_wardrobe_advice": "General styling idea 1 (suggested pieces, not owned): Graphic Tee — 2003 Tour Bootleg Style. Pair the graphic tee with high‑waisted black skinny jeans or distressed denim for a classic grunge vibe, and finish with chunky platform boots or combat sneakers. Add a leather biker jacket if you acquire one for extra edge.\n\nGeneral styling idea 2 (suggested pieces, not owned): Graphic Tee — 2003 Tour Bootleg Style. Style the tee under an oversized flannel shirt and pair with relaxed cargo pants or joggers; complete the look with a pair of classic Dr. Martens or high‑top sneakers for street‑ready comfort.",
+  "empty_fit_card_error": "Error: A valid outfit suggestion is required before creating a fit card."
+}

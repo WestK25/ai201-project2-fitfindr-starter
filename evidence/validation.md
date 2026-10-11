@@ -1,48 +1,52 @@
 # Actual validation record
 
-Validated October 2, 2026 (America/New_York). Python 3.12.1, Groq SDK 0.15.0, Gradio 6.29.0, pytest 9.1.1. Exact installed packages are in requirements-lock.txt.
+Completed October 11, 2026 (America/New_York). The full paced scenario capture ran at `2026-10-02T17:37:11.387010+00:00`; the final real Gradio capture ran at `2026-10-11T15:11:06.058554+00:00`. Evidence files retain actual timestamps. Python 3.12.1, Groq SDK 0.15.0, Gradio 6.29.0 and pytest 9.1.1; exact installed versions are in requirements-lock.txt.
 
-## Passing objective checks
+## Verified results
 
-- **87 passed, 0 failed** in the final pytest run; unedited stdout: [test_results.txt](test_results.txt). Earlier staged results: 34 isolated required-tool tests before agent wiring, then [57 required tests](required_test_results.txt).
-- Exact required tool signatures match both planning.md and README.md. [security_audit.json](security_audit.json) records the programmatic check.
-- Happy-path argument identity and conditional control flow pass mocked unit tests. Mocked generations are not represented as actual Groq outputs.
-- Real starter search selected lst_002 for the size-M, $30 tee query. Its actual comparable prices are $24/$19, median $21.50. [Live source/comparison output](live_stretch_sources.json).
-- A real official Depop report fetch succeeded; source URL, publication date, retrieval timestamp and content digest were recorded. Monthly blog requests returned 403, so the official annual report is used with explicit scope.
-- Persistent preference storage and reuse succeeded across two actual agent interactions and a new Python process, even though subsequent generation is blocked. See live_demo.json::memory.persisted_and_reused and memory.new_process_profile.
-- Real deliberate failures: impossible tool search returned []; full impossible query performed three searches and stopped before generation; blank caption input returned a specific Error string. See live_demo.json::deliberate_failures.
-- Real fallback search removed size then budget and found an item; final generation for that candidate remains blocked. Original description was unchanged and adjustments were recorded.
-- **Actual app.py startup passed**: Gradio HTTP config returned 200, gradio_client invoked the UI's empty-query event and received four correctly mapped outputs (three primary + details). Server exited cleanly with code 0. [app_smoke.txt](app_smoke.txt) records the temporary local URL; that server is now stopped.
-- Starter data and loader are unchanged. No implementation stubs remain. .env, .venv, profile and trend cache are ignored. Tracked/untracked deliverable files and Git history were scanned without printing matches; no secret matches were found.
-- Project 1 has no added/missing/size-or-modification-time-changed files relative to the pre-setup baseline. [Preservation check](project1_preservation.json). Project 2 was created as a sibling.
+- **91 passed, 0 failed** in the full pytest suite. [Unedited stdout](test_results.txt). Earlier development milestones were 34 isolated tool tests before agent wiring and 57 required tests; those historical results are retained.
+- **Real standalone tools passed:** live_demo.json::scenarios.standalone_tools contains a real example-wardrobe outfit and caption, with selected-item, actual-wardrobe-name, 2–4 sentence and item/price/platform checks.
+- **Real Groq end-to-end passed:** [live_demo.json](live_demo.json) records happy, empty-wardrobe, retry, first-memory and second-memory runs, each with error=null and live_validation.all_passed=true. Its failed_scenarios is empty.
+- **Actual state identity passed:** observing wrappers delegated to the real production tools and SDK; no model responses were mocked. They confirmed that the actual search result object reached both generation tools and the exact outfit string reached the caption tool. The original functions were restored after each observation.
+- **Content inspected:** populated-wardrobe outputs named real provided pieces, and captions used 2–4 sentences with the correct item, price, platform and outfit vibe. Structured ID enums and local checks reject invalid pieces; the observed narrative was also inspected by Codex. No student review is claimed.
+- **All stretch features passed:** real same-family comparison, staged retry recovery, memory reuse across two interactions and a new Python process, and real sourced trend application. The second memory query omitted preferences but reused baggy/streetwear/chunky-sneakers preferences and produced a successful outfit.
+- **Trend retrieval and influence passed:** [latest source metadata](live_stretch_sources.json) comes from the real app's source fetch. The full agent evidence stores the actual trend sent to Groq, its returned trend_used/trend_application, and the final attributed outfit. The source remains the official annual 2026 Depop report, published December 20, 2025; retrieval time is not presented as publication time. No trend terms or popularity counts were fabricated.
+- **Full deliberate-failure checks passed:** impossible search returned []; the full agent exhausted applicable retries and called no downstream generation; blank caption input returned the expected descriptive Error string. See live_demo.json::scenarios.deliberate_failures and refreshed required_live_checks.txt. Rate-limit, absent-key, malformed-content and real SDK exception classes also have deterministic unit coverage.
+- **Real Gradio end-to-end passed:** [app_live.json](app_live.json) records actual app.py launch, HTTP 200 config, empty/happy/impossible calls through Gradio's event API, genuine Groq generation, all output checks, visible trend application and clean server exit code 0. This was an actual server/event interaction, not a direct handler mock. The recorded temporary server has been stopped.
+- **Signatures/security:** verify_repository.py compares required signatures with planning.md and README.md; checks planning-only commits; scans deliverable files and Git history without printing secrets; verifies .env/.venv/profile/cache exclusions and unchanged starter data/loader. See security_audit.json. No generated personal profile is tracked; example preference data in evidence is synthetic demo input. Project 1 was not edited during migration.
 
-## Real external blocker — no success fabricated
+On October 11, macOS had offloaded ignored environment files to iCloud, stalling imports. The credentials file was downloaded without displaying it, and generated dependency packages were restored in place from the exact lockfile. The final test and real app checks above passed afterward. No Project 1 files were changed.
 
-The required `meta-llama/llama-4-scout-17b-16e-instruct` request returned HTTP 404 with service code `model_not_found`; the authenticated model listing also omitted it. [Groq's official notice](https://console.groq.com/docs/deprecations) says the model was shut down July 17, 2026. The account lists `openai/gpt-oss-120b`, Groq's recommended replacement. Because the user explicitly required Scout, changing to that model was asked as an unavoidable external-blocker decision and remains pending.
+## Approved model divergence and resolved migration issues
 
-Consequently **no genuine Groq end-to-end request succeeded**. The real scenario harness truthfully exited 1 and saved [live_demo.json](live_demo.json), with failed scenarios happy, empty_wardrobe, retry generation and memory generation. [agent_cli.txt](agent_cli.txt) is actual CLI output; the app shows controlled model-unavailable errors rather than a traceback. Trend prompt/application behavior is unit-tested with mocks; real trend-influenced styling is not claimed.
+The original AI201 Project 2 specification required `meta-llama/llama-4-scout-17b-16e-instruct`. Groq shut that model down for free/developer-tier usage on **July 17, 2026**, and [officially recommends `openai/gpt-oss-120b` as a replacement](https://console.groq.com/docs/deprecations). After an actual Scout `model_not_found` response, the user explicitly approved the replacement. Both generation tools therefore use **`openai/gpt-oss-120b` through Groq** so the required Groq-based workflow remains functional. The original Scout planning commits and historical failure evidence are preserved; GPT-OSS was not the original plan. All three required function signatures are unchanged.
 
-The audit conservatively supports **23/25 required and 5/7 stretch targets**, not an awarded grade. See [every target and its evidence](rubric_audit.md). Completing the model decision and subsequent real validation is required before claiming the only remaining task is recording/uploading the demo and adding its URL.
+The migration required more than replacing the ID. [The real initial diagnostic](migration_diagnostic.json) showed finish_reason=length at 1,000 tokens and incorrect trend nesting. [The next diagnostic](migration_wardrobe_diagnostic.json) showed the model putting a listing ID in the owned-wardrobe list; the existing guard rejected it. The final request uses a 2,500-token budget, low reasoning effort, no returned reasoning, and strict JSON Schema with valid-ID enums, root trend fields and bounded arrays. Truncated output is rejected even if its JSON parses. Both production tools still retain their original signatures and temperatures.
 
-## Reproduction
+Groq rate-limit headers verified an 8,000-token/minute account allowance during migration. The validation runner spaces calls by 15 seconds by default; the app returns actionable wait-and-retry guidance for HTTP 429. The final paced run succeeded. Historical Scout/pre-fix failure outputs are retained as historical evidence or Git history and do not describe the final application's status.
+
+**25/25 required targets supported; 7/7 stretch targets supported.** This is an evidence assessment, not an awarded grade. The [line-by-line rubric audit](rubric_audit.md) cites source, tests and real results for every target. No implementation blocker remains. The only remaining student task is recording/uploading the 3–5 minute demo, adding its actual URL to README and committing/pushing that link.
+
+## Reproduce
 
 ```bash
 source .venv/bin/activate
 python -m pytest tests/ -q
 python agent.py
 python demo_scenarios.py --scenario all --output evidence/live_demo.json
-python verify_app.py
+python verify_app.py --output evidence/app_live.json
 python verify_repository.py
 ```
 
-The scenario runner uses temporary synthetic preference data. It returns nonzero if a required live scenario fails. Tests isolate all persistence and mock services, so they do not consume Groq quota or overwrite user state.
+Run live commands sequentially with normal pauses to respect Groq quota. The full scenario runner takes a few minutes and isolates synthetic preferences in a temporary directory. It returns nonzero on a generation or quality-check failure. Tests isolate storage and mock network services; live evidence does not.
 
 ## Commit chronology
 
-1. e806702 — Complete FitFindr required-feature plan (planning.md only; tools/agent/app still starter stubs).
+1. e806702 — Complete FitFindr required-feature plan (planning.md only; starter code still untouched).
 2. 8d0fa1a — Implement and test FitFindr required tools and workflow.
 3. 4e69b58 — Plan FitFindr stretch features (planning.md only, before stretch code).
 4. 359bbe4 — Add and verify FitFindr stretch features and demo harness.
-5. Final documentation/audit commit follows; Git history is authoritative for its hash.
+5. 6ce520e — Document FitFindr validation, rubric evidence, and model blocker (historical pre-approval state).
+6. Model migration/live-validation commit follows these existing commits; Git history supplies its exact hash. No planning history was rewritten.
 
-No demo URL has been fabricated. The only allowed submission placeholder is `Demo video: TODO — add after recording`; no AI-transparency statement claims student review that has not occurred.
+The README retains `Demo video: TODO — add after recording`. No demo URL, screenshot, student review or test output has been fabricated.

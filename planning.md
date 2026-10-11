@@ -1,5 +1,7 @@
 # FitFindr implementation plan
 
+This document preserves the original Scout-based plan. The approved model migration and observed response adjustments at the end specify the current GPT-OSS implementation.
+
 ## Scope and sequence
 
 Use the official CodePath starter, its unchanged data loader, 40 mock listings, and example/empty wardrobe helpers. Listings are classroom data, not live inventory. Commit this required-feature plan before editing tools.py, agent.py, or app.py. Implement and pass isolated required-tool tests before wiring the agent. Commit required implementation/tests, then expand and commit this plan before implementing any stretch feature. The retry branch below specifies the intended final design; the required-only checkpoint stops on zero results until the separately planned retry implementation lands.
@@ -235,4 +237,23 @@ Stretch tests will run with a temporary profile directory and mocked network by 
 
 ## Verified development issue before stretch
 
-Required tool tests: 34 passed before agent wiring. Required suite: 57 passed. A genuine Groq request returned HTTP 404, code `model_not_found`, for Scout; model listing confirmed it absent. [Groq's deprecation notice](https://console.groq.com/docs/deprecations) states shutdown July 17, 2026. The requested replacement `openai/gpt-oss-120b` is available, but switching models awaits the user's response because the original instructions explicitly specified Scout. No successful live generation is claimed at this checkpoint. This availability finding is a real potential divergence from the original specification, not an invented reflection.
+Required tool tests: 34 passed before agent wiring. Required suite: 57 passed. A genuine Groq request returned HTTP 404, code `model_not_found`, for Scout; model listing confirmed it absent. [Groq's deprecation notice](https://console.groq.com/docs/deprecations) states shutdown July 17, 2026. At this historical checkpoint the available replacement `openai/gpt-oss-120b` awaited the user's approval because the original instructions explicitly specified Scout. No successful Scout generation was claimed. The user subsequently approved migration; the update below and final live evidence resolve this historical blocker while preserving the original plan.
+
+
+## Approved model migration — October 2, 2026
+
+The original required-feature plan above used `meta-llama/llama-4-scout-17b-16e-instruct`; that planning history is preserved. Groq shut it down for free/developer-tier usage on July 17, 2026, and [officially recommends `openai/gpt-oss-120b`](https://console.groq.com/docs/deprecations) as a replacement. After the actual 404/model_not_found diagnosis, the user explicitly approved migration on October 2, 2026. Both generation tools will now use one shared `MODEL = "openai/gpt-oss-120b"` constant so the Groq-based workflow remains functional. All three required function signatures remain unchanged.
+
+Migration verification: run the full unit suite; real standalone outfit/caption calls; full agent happy, empty-wardrobe, retry and failure scenarios; two-interaction/new-process memory; real source retrieval plus visible generated trend application; and a real Gradio UI happy-path event. Record actual output, verify wardrobe membership and 2–4 caption sentences, and update the rubric only after these checks pass. Any response-format or token-budget adjustment discovered during this migration will be documented below. The earlier Scout failure is historical evidence, not a current unresolved approval.
+
+### Observed GPT-OSS response adjustment
+
+The first full live migration run succeeded for happy/empty/retry paths but failed one memory interaction. A diagnostic real response reported finish_reason=length at the original 1,000-token cap and put trend fields inside a look rather than at the JSON root. Increase the shared cap to 2,500 tokens, set Groq reasoning_effort=low and include_reasoning=false (forwarded through the retained SDK's extra_body), and explicitly describe root-level trend fields. Reject length-finished responses even if their partial content parses as JSON. Also clarify that each look should use available complementary tops/bottoms/footwear and keep the featured graphic tee visible. These are observed-response fixes; the public tool signatures, temperatures and conditional data flow remain unchanged. The migration evidence retains the real pre-fix failure alongside final results.
+
+A second live diagnostic showed GPT-OSS placing the selected listing ID in wardrobe_ids even though that ID was not an owned wardrobe piece; the existing validation correctly rejected it. Use Groq's supported strict JSON Schema response format for GPT-OSS: wardrobe IDs are an enum of only the provided closet IDs, trend fields are required at the root only when relevant, look/sentence arrays are bounded, and extra keys are forbidden. Empty wardrobes require empty ID arrays. Keep local semantic checks and controlled errors even with schema enforcement. No source item is silently added to the user's owned wardrobe. See [Groq Structured Outputs](https://console.groq.com/docs/structured-outputs).
+
+Groq response headers verified an 8,000-token/minute limit on this account. Pace the multi-scenario evidence harness with a default 15-second minimum between real requests; this applies only to the validation runner, not normal app interactions. Record failure class/status without raw API bodies when a live check fails. Production HTTP 429 errors explicitly advise waiting one minute and checking quota. This prevents a burst of automated validation requests from being confused with a model-format defect.
+
+## Final migration verification — October 11, 2026
+
+The approved shared GPT-OSS model and strict-output implementation passed **91 unit tests**, real standalone tools, the complete agent's happy/empty/retry/memory scenarios, real sourced trend application, and Gradio's actual happy/failure event flow. Recorded evidence is in evidence/live_demo.json and evidence/app_live.json; the former observes actual SDK calls without substituting model responses and confirms item/string identity. All 25 required and 7 stretch evidence targets are supported. The original Scout requirement and July 17, 2026 retirement remain documented above. Only the actual 3–5 minute video, its upload, and its README URL remain.

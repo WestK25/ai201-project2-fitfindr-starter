@@ -1,6 +1,6 @@
 # Recording guide (3–5 minutes)
 
-First resolve any model limitation reported in validation.md; a failed generation is not a successful happy-path demo. Open Project 2, activate `.venv`, run `python app.py`, and open the printed localhost URL. Choose Example wardrobe. Use Reset style memory for a known starting point.
+The approved GPT-OSS migration and real app interaction are verified in validation.md. Open Project 2, activate `.venv`, run `python app.py`, and open the printed localhost URL. Choose Example wardrobe. Use Reset style memory for a known starting point.
 
 ## 0:00–1:00 — Three-tool happy path
 
@@ -16,7 +16,7 @@ Show the three panels. Point to the actual title/size/price, named closet pieces
 
 Expand the details accordion. Say: “The search result at index zero is stored as selected_item. That same dictionary is passed directly into suggest_outfit. Its returned string is stored as outfit_suggestion and passed directly into create_fit_card. I never retype intermediate values.” Show the repeated item ID and `outfit_source: session.outfit_suggestion`. The unit identity test proves object/string passing, which cannot be established by a screenshot alone.
 
-Point to comparable IDs lst_006/lst_033, their $24/$19 prices and $21.50 median, and the $18 selected item. Show the published/retrieved dates and live/cached status of Depop's **annual** 2026 report. Read the trend application in the outfit itself.
+Point to comparable IDs lst_006/lst_033, their $24/$19 prices and $21.50 median, and the $18 selected item. Show the published/retrieved dates and live/cached status of Depop's **annual** 2026 report. Read the trend application in the outfit itself. Exact trend demo query: `vintage graphic tee under $30, size M`. The verified source supplies Neo Nostalgia; point out how the generated suggestion applies mixed-era styling and layering to the actual tee and wardrobe pieces, not merely a trend badge.
 
 ## 1:40–2:10 — Deliberate failure
 
@@ -50,7 +50,7 @@ Show that the second query contains no preferences but `style_profile_used.likes
 
 ## 3:50–4:30 — Plan, tests and transparency
 
-Show the two planning commits before their respective implementations, the test output, and README AI Usage Transparency. Explain Codex's actual role and objective tests; do not claim personal edits/review you did not do. An optional Empty wardrobe query demonstrates general advice.
+Show the two planning commits before their respective implementations, the test output, and README AI Usage Transparency. Explain the model divergence: the assignment originally specified Scout, Groq retired it for free/developer usage on July 17, 2026, and the approved implementation uses Groq's recommended GPT-OSS 120B replacement. Explain Codex's actual role and objective tests; do not claim personal edits/review you did not do. An optional Empty wardrobe query demonstrates general advice.
 
 ## Commands for focused terminal demonstrations
 
@@ -64,7 +64,7 @@ python demo_scenarios.py --scenario memory
 python -m pytest tests/ -q
 ```
 
-The harness runs real services and reports failures truthfully. It uses isolated temporary preferences, avoiding your personal state. After uploading the video, replace `Demo video: TODO — add after recording` in README.md with the actual link, then:
+The harness runs real services and reports failures truthfully. It spaces API requests by 15 seconds to respect the verified account quota; the full batch takes a few minutes. In a recording, explain outputs between queries rather than rapidly clicking repeatedly. It uses isolated temporary preferences, avoiding your personal state. After uploading the video, replace `Demo video: TODO — add after recording` in README.md with the actual link, then:
 
 ```bash
 git add README.md

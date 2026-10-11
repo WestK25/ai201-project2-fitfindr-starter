@@ -1,0 +1,10 @@
+[
+  {
+    "finish_reason": "length",
+    "usage": {
+      "completion_tokens": 1000,
+      "prompt_tokens": 1107
+    },
+    "content": "{\"looks\":[{\"wardrobe_ids\":[\"w_001\",\"w_004\",\"w_006\",\"w_007\",\"w_010\"],\"advice\":\"Pair the cropped Y2K butterfly tee with dark baggy straight\u2011leg jeans, layer the vintage black denim jacket over the oversized grey crewneck for a street\u2011ready silhouette, and finish with chunky white sneakers and a black crossbody bag for a nostalgic early\u20112000s vibe.\",\"trend_used\":\"Neo Nostalgia\",\"trend_application\":\"The mix of early\u20112000s graphic tee, baggy denim and chunky sneakers revives the retro streetwear feel that defines Neo Nostalgia.\"}]}"
+  }
+]

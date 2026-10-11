@@ -31,9 +31,11 @@ python app.py
 
 Open the localhost URL printed by Gradio. Ctrl-C stops the app. It binds to 127.0.0.1, with no public share link. This is a single-user local app: saved preferences belong to the person using this computer.
 
-### Model availability
+### Model and approved migration
 
-The original required model is `meta-llama/llama-4-scout-17b-16e-instruct`. A real request returned HTTP 404 / `model_not_found`. [Groq documents its July 17, 2026 shutdown](https://console.groq.com/docs/deprecations), and the authenticated models endpoint confirmed it unavailable. `openai/gpt-oss-120b` is an available recommended replacement; switching to it requires resolving the user's explicit Scout requirement. At this checkpoint live generation is blocked, and no successful Scout call is claimed. See [validation](evidence/validation.md) for final verified status.
+The original AI201 Project 2 specification required `meta-llama/llama-4-scout-17b-16e-instruct`. Groq shut that model down for free/developer-tier usage on **July 17, 2026**, and [officially recommends `openai/gpt-oss-120b` as a replacement](https://console.groq.com/docs/deprecations). After an actual Scout `model_not_found` response, the user explicitly approved the replacement. Both generation tools therefore use **`openai/gpt-oss-120b` through Groq** so the required Groq-based workflow remains functional. The original Scout planning commits and historical failure evidence are preserved; GPT-OSS was not the original plan. All three required function signatures are unchanged.
+
+No extra model setting is needed: tools.py defines the shared model constant used by both generation requests. Live standalone tools, the complete agent, all stretch scenarios and a real Gradio interaction have passed with the replacement; see [validation](evidence/validation.md). The app uses a 2,500-token cap, low reasoning effort, no returned reasoning, and strict JSON schemas. Wardrobe IDs are restricted to actual provided pieces; trend data is placed at the JSON root. Local content validation and controlled API errors remain in place.
 
 ## Tool Inventory
 
@@ -134,7 +136,7 @@ The `stage` field drives a bounded state machine: **parse → search → context
 | `create_fit_card` | Missing/blank/Error outfit | `Error: A valid outfit suggestion is required before creating a fit card.` No Groq call. |
 | `create_fit_card` | Invalid listing / API failure / malformed caption | Specific controlled error; retry after fixing credentials, connectivity, quota or input. |
 
-**Actually triggered:** `search_listings('designer ballgown', size='XXS', max_price=5)` returned `[]`; the full agent ultimately stops with broadening advice, and its trace contains only searches. `create_fit_card('', item)` returned the exact descriptive error above. A real Scout request produced a controlled API failure, with no traceback in the app. [Recorded required checks](evidence/required_live_checks.txt) show the earlier required-only checkpoint; the final harness records the later retry implementation. SDK connection exceptions are also deliberately tested with mocks; those mocked cases are not labeled as live network failures.
+**Actually triggered:** `search_listings('designer ballgown', size='XXS', max_price=5)` returned `[]`; the full agent ultimately stops with broadening advice, and its trace contains only searches. `create_fit_card('', item)` returned the exact descriptive error above. The historical Scout request produced a controlled API failure before the approved migration; current GPT-OSS generation succeeds. Rate-limit errors now specifically advise waiting one minute and checking quota. [Recorded required checks](evidence/required_live_checks.txt) were refreshed after migration and show actual zero-result, empty-wardrobe and empty-caption behavior; the full harness records staged retries and successful generation. SDK connection exceptions are also deliberately tested with mocks; those mocked cases are not labeled as live network failures.
 
 ## Stretch Features
 
@@ -156,7 +158,7 @@ Source: [Depop's official 2026 annual trends report](https://news.depop.com/comp
 
 The parser accepts verified report headings and keywords actually present in their following paragraphs. Item overlap determines whether any trend applies. Source URL, publication date, UTC retrieval timestamp and HTML SHA-256 accompany the result. The cache is written only after successful retrieval, reused for 24 hours, then refreshed with a 6-second timeout. Failed refresh can use a verified snapshot up to 30 days old, visibly labeled cached. Otherwise trends become unavailable. After the report's coverage year, the source is disabled pending a verified update.
 
-`wardrobe['_trend_info']` passes relevant context into the unchanged two-argument outfit tool. Generated output must identify the exact trend and explain how the actual pieces express it; the suggestion displays that application with attribution. A disconnected badge alone is insufficient. Live source evidence is [saved here](evidence/live_stretch_sources.json); mocked tests separately prove prompt inclusion and visible styling influence. Successful real generated influence depends on resolving model availability.
+`wardrobe['_trend_info']` passes relevant context into the unchanged two-argument outfit tool. Generated output must identify the exact trend and explain how the actual pieces express it; the suggestion displays that application with attribution. A disconnected badge alone is insufficient. Live source evidence is [saved here](evidence/live_stretch_sources.json); mocked tests separately prove prompt inclusion and visible styling influence. Real GPT-OSS generations now demonstrate this influence: [live_demo.json](evidence/live_demo.json) contains the actual trend sent to Groq, its returned `trend_used`/`trend_application`, the visibly attributed outfit, and passing checks. [app_live.json](evidence/app_live.json) proves the same behavior through the real Gradio event.
 
 ### Retry with fallback
 
@@ -166,7 +168,9 @@ For `vintage graphic tee size XXS under $1`, the first search is empty, the seco
 
 **How planning helped:** The state table and error branches made the data-flow requirements directly testable. Before the agent was wired, 34 isolated tool tests passed; the later identity test checked that both tools received the actual search object and that the caption received the exact outfit string. The separate stretch plan also made profile/trend enrichment possible without changing required tool signatures.
 
-**Real implementation refinement/divergence:** The initial plan described an LLM-created 2–4 sentence caption. The implementation writes the factual opening deterministically and asks Groq for only the remaining 1–3 vibe sentences, then validates the result. This makes the required title, price and platform reliable while retaining generated prose and the planned total length. Separately, live verification disproved the original assumption that Scout remained available; that external model issue is disclosed above rather than masked by fabricated success.
+**Real implementation divergence:** The original AI201 Project 2 specification required `meta-llama/llama-4-scout-17b-16e-instruct`. Groq shut that model down for free/developer-tier usage on **July 17, 2026**, and [officially recommends `openai/gpt-oss-120b` as a replacement](https://console.groq.com/docs/deprecations). After an actual Scout `model_not_found` response, the user explicitly approved the replacement. Both generation tools therefore use **`openai/gpt-oss-120b` through Groq** so the required Groq-based workflow remains functional. The original Scout planning commits and historical failure evidence are preserved; GPT-OSS was not the original plan. All three required function signatures are unchanged.
+
+Live migration testing exposed two response-format differences: one response exhausted the former 1,000-token cap, and another put the new listing ID among owned wardrobe IDs. Codex increased the cap to 2,500 with low reasoning effort, required strict schemas with an enum of real wardrobe IDs, specified root-level trend fields, and rejected truncated output. [Actual diagnostic responses](evidence/migration_diagnostic.json) and [wardrobe-ID diagnostic](evidence/migration_wardrobe_diagnostic.json) preserve what failed before the fix. The final real responses pass the content and state checks. The caption's factual opening remains deterministic, followed by 1–3 generated vibe sentences, keeping the required total at 2–4 sentences.
 
 ## AI Usage Transparency
 
@@ -174,7 +178,7 @@ Codex carried out this project from the user's detailed request. No student revi
 
 1. **Required specifications → tools:** Codex used the Tool 1/2/3 planning blocks, actual starter listing fields and data-loader functions to implement tools.py. It then ran 34 meaningful unit tests covering searches, normalization, size boundaries, request payloads, actual SDK exception types and guarded caption input before touching the agent implementation. Structured wardrobe IDs and deterministic caption facts were used to reduce unsupported generated details.
 2. **Architecture/state specification → agent and UI:** Codex used the planning loop, state table, diagrams and three-output UI contract to implement agent.py and app.py. Identity tests verified exact input flow and conditional tests verified early termination; the required suite reached 57 passing tests. While extending boundary coverage, inspection exposed a decimal shoe-size parsing gap; Codex revised the regex and added a regression for `size 8.5`.
-3. **Stretch/error specification → verification:** Codex implemented the separately committed stretch plan and added mocked HTTP, cache expiry, corrupted storage, two-process preference reuse, comparison and retry tests. It retrieved the real Depop report and launched/stopped the real Gradio app, validating a UI event through gradio_client. Live Groq testing exposed model retirement, so success is not claimed for that request.
+3. **Stretch/error specification → verification:** Codex implemented the separately committed stretch plan and added mocked HTTP, cache expiry, corrupted storage, two-process preference reuse, comparison and retry tests. It retrieved the real Depop report and launched/stopped the real Gradio app, validating a UI event through gradio_client. Live Groq testing exposed model retirement. After the user approved GPT-OSS, additional live testing exposed truncation and wardrobe-ID issues; Codex added regression tests, adjusted the request, and reran the real tool/agent/Gradio workflows successfully. No successful Scout request is claimed.
 
 The commit history preserves both planning gates. Test fixtures and mocked model/HTTP responses are explicitly distinct from live evidence. No external trend statistics, screenshot, demo link or test output was invented.
 
@@ -184,10 +188,14 @@ The commit history preserves both planning gates. Test fixtures and mocked model
 python -m pytest tests/
 python agent.py
 python demo_scenarios.py --scenario all --output evidence/live_demo.json
-python verify_app.py
+python verify_app.py --output evidence/app_live.json
 ```
 
-Unit tests mock external services and isolate persistent state. The scenario runner makes real Groq/source calls, checks deliberate failures, and tests memory across a new process; it exits nonzero when generation fails. The app verifier starts app.py, requests Gradio's real HTTP config, invokes the empty-query event and stops the server. Final unit result: **87 passed, 0 failed**. Live generation remains blocked by the retired Scout model. See [validation](evidence/validation.md), [test output](evidence/test_results.txt), and [rubric audit](evidence/rubric_audit.md) for actual recorded results and limitations.
+Unit tests mock external services and isolate persistent state. Final result: **91 passed, 0 failed**. The scenario runner makes real Groq/source calls, checks deliberate failures and two-interaction/new-process memory, and exits nonzero if generation or output checks fail. It spaces requests by 15 seconds by default to respect the verified 8,000-token/minute account limit, so the full batch takes a few minutes. The application itself has no artificial delay; an API rate-limit response tells you when to retry.
+
+The app verifier starts app.py, requests the real HTTP config, and invokes empty, happy and impossible queries through Gradio's actual event API. The happy query completed all three required tools with real Groq generation, and the server stopped cleanly. Live checks verify real wardrobe names, 2–4 caption sentences, title/price/platform, identical item references, exact outfit-string passing and visible sourced trend application. The recorded outputs were also inspected for outfit coherence and vibe; this is Codex review, not a claim of student review.
+
+See [validation](evidence/validation.md), [test output](evidence/test_results.txt), [real agent outputs](evidence/live_demo.json), [real app outputs](evidence/app_live.json), and [every rubric target](evidence/rubric_audit.md): **25/25 required and 7/7 stretch evidence supported**. These are supported targets, not an awarded grade. No implementation blocker remains.
 
 ## Demo
 
