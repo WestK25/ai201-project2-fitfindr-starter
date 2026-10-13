@@ -2,9 +2,9 @@
 
 This is an evidence assessment, not an awarded grade. Final unit result: **91 passed, 0 failed**. Real standalone Groq calls, the full agent, all stretch scenarios and the actual Gradio happy-path event succeeded. **25/25 required targets supported; 7/7 stretch targets supported.** Only recording/uploading the demo and adding its URL remain.
 
-The original AI201 Project 2 specification required `meta-llama/llama-4-scout-17b-16e-instruct`. Groq shut that model down for free/developer-tier usage on **July 17, 2026**, and [officially recommends `openai/gpt-oss-120b` as a replacement](https://console.groq.com/docs/deprecations). After an actual Scout `model_not_found` response, the user explicitly approved the replacement. Both generation tools therefore use **`openai/gpt-oss-120b` through Groq** so the required Groq-based workflow remains functional. The original Scout planning commits and historical failure evidence are preserved; GPT-OSS was not the original plan. All three required function signatures are unchanged.
+The original AI201 Project 2 specification required `meta-llama/llama-4-scout-17b-16e-instruct`. Groq shut that model down for free/developer-tier usage on **July 17, 2026**, and [officially recommends `openai/gpt-oss-120b` as a replacement](https://console.groq.com/docs/deprecations). After reviewing the actual Scout `model_not_found` failure and Groq’s recommended replacement, I explicitly approved the migration. Both generation tools therefore use **`openai/gpt-oss-120b` through Groq** so the required Groq-based workflow remains functional. The original Scout planning commits and historical failure evidence are preserved; GPT-OSS was not the original plan. All three required function signatures are unchanged.
 
-Legend: **Supported** means concrete source, tests and/or genuine live evidence cited below. The point grouping follows the user-supplied rubric; planning-loop logic spans two of that group's four points. Mock fixtures and historical migration failures are explicitly separate from the successful live evidence.
+Legend: **Supported** means concrete source, tests and/or genuine live evidence cited below. The point grouping follows the course rubric I supplied; planning-loop logic spans two of that group's four points. Mock fixtures and historical migration failures are explicitly separate from the successful live evidence.
 
 ## Required: three tools — 4/4 supported
 
@@ -20,7 +20,7 @@ Legend: **Supported** means concrete source, tests and/or genuine live evidence 
 | Target | Status | Repository evidence |
 |---|---|---|
 | Natural-language request through all three tools to fit card | Supported | live_demo.json::scenarios.happy and app_live.json::happy_outputs contain the actual selected item, named wardrobe outfit and 3-sentence fit card produced by GPT-OSS |
-| Walkthrough explains each tool and reason | Supported | README Multi-Step Workflow; planning.md Complete interaction walkthrough uses actual lst_002; demo_queries.md |
+| Walkthrough explains each tool and reason | Supported | README Multi-Step Workflow; planning.md Complete interaction walkthrough uses actual lst_002; live_demo.json::scenarios.happy; test_identity_and_exact_state_flow |
 
 ## Required: state — 3/3 supported
 
@@ -67,8 +67,8 @@ Legend: **Supported** means concrete source, tests and/or genuine live evidence 
 
 | Target | Status | Repository evidence |
 |---|---|---|
-| At least two specific Codex uses | Supported | README AI Usage Transparency lists tool implementation, architecture/UI, and stretch/error verification inputs and outputs |
-| Verification/revision truthful | Supported | 34 required-tool tests ran before agent wiring, then 57 required tests; final 91 tests; decimal size regression and actual retired-model diagnosis described; no fabricated student review |
+| At least two specific Codex uses | Supported | README AI Usage Transparency lists my required implementation, agent/stretch, and model-migration directions alongside Codex’s outputs and the checks I required |
+| Verification/revision truthful | Supported | README records my review of the incomplete 23/25 + 5/7 report, approval of the GPT-OSS migration, and required revalidation before acceptance; Codex’s test execution and output inspection remain explicitly attributed |
 
 ## Stretch: price comparison — 2/2 supported
 
@@ -99,8 +99,8 @@ Legend: **Supported** means concrete source, tests and/or genuine live evidence 
 | Zero-result search automatically retries | Supported | live_demo.json::scenarios.retry.retry_history has three real dataset attempts with counts 0/0/nonzero; live_demo.json::scenarios.retry completes real outfit/caption generation and passes all checks; unit tests also verify the branch |
 | User sees changes | Supported | app.py::_format_session includes warning; actual session warning identifies size/max_price; test_fallback_warning_visible |
 
-## Remaining student task
+## Remaining submission work
 
 No rubric target lacks repository evidence. The Scout retirement is resolved through the explicitly approved, documented GPT-OSS migration; original planning history is preserved. The evidence assessment does not claim a submitted video or an instructor-awarded score.
 
-Record/upload the 3–5 minute demo using demo_queries.md and replace `Demo video: TODO — add after recording` in README.md with the real URL, then commit/push that README change. No fake URL or unconfirmed student-review statement is present.
+I still need to record/upload the 3–5 minute demo, add its actual URL to the README Demo section, and commit/push that README change.

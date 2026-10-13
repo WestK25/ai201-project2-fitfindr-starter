@@ -9,13 +9,14 @@ Based on the [official CodePath starter](https://github.com/codepath/ai201-proje
 Tested on macOS with Python 3.12.1. From a terminal:
 
 ```bash
-cd "/Users/kylewest/Documents/Howard/Courses/Senior Year/AI Course/Project 2/ai201-project2-fitfindr-starter"
+git clone https://github.com/WestK25/ai201-project2-fitfindr-starter.git
+cd ai201-project2-fitfindr-starter
 python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-On a different computer, clone this fork first and use its local path. Python 3.12 is recommended. The already-created environment can simply be activated; do not recreate it for every launch. `requirements-lock.txt` records exact installed versions for reproducibility (`python -m pip install -r requirements-lock.txt`).
+Python 3.12 is recommended. For an existing checkout, activate the existing environment; it does not need to be recreated for every launch. `requirements-lock.txt` records exact installed versions for reproducibility (`python -m pip install -r requirements-lock.txt`).
 
 Create `.env` locally if it does not already exist, containing this placeholder replaced by your own key:
 
@@ -23,7 +24,7 @@ Create `.env` locally if it does not already exist, containing this placeholder 
 GROQ_API_KEY=your_key_here
 ```
 
-The project reads its own `.env`, never prints its contents, and Git ignores it. This workspace safely reuses the existing Project 1 credentials without changing Project 1. The key is never copied into documentation, test output or history.
+The project reads its local `.env`, and Git ignores that file. I keep the key out of source code, documentation, test output, and Git history.
 
 ```bash
 python app.py
@@ -33,7 +34,7 @@ Open the localhost URL printed by Gradio. Ctrl-C stops the app. It binds to 127.
 
 ### Model and approved migration
 
-The original AI201 Project 2 specification required `meta-llama/llama-4-scout-17b-16e-instruct`. Groq shut that model down for free/developer-tier usage on **July 17, 2026**, and [officially recommends `openai/gpt-oss-120b` as a replacement](https://console.groq.com/docs/deprecations). After an actual Scout `model_not_found` response, the user explicitly approved the replacement. Both generation tools therefore use **`openai/gpt-oss-120b` through Groq** so the required Groq-based workflow remains functional. The original Scout planning commits and historical failure evidence are preserved; GPT-OSS was not the original plan. All three required function signatures are unchanged.
+The original AI201 Project 2 specification required `meta-llama/llama-4-scout-17b-16e-instruct`. Groq shut that model down for free/developer-tier usage on **July 17, 2026**, and [officially recommends `openai/gpt-oss-120b` as a replacement](https://console.groq.com/docs/deprecations). After reviewing the actual Scout `model_not_found` failure and Groq’s recommended replacement, I explicitly approved the migration. Both generation tools therefore use **`openai/gpt-oss-120b` through Groq** so the required Groq-based workflow remains functional. The original Scout planning commits and historical failure evidence are preserved; GPT-OSS was not the original plan. All three required function signatures are unchanged.
 
 No extra model setting is needed: tools.py defines the shared model constant used by both generation requests. Live standalone tools, the complete agent, all stretch scenarios and a real Gradio interaction have passed with the replacement; see [validation](evidence/validation.md). The app uses a 2,500-token cap, low reasoning effort, no returned reasoning, and strict JSON schemas. Wardrobe IDs are restricted to actual provided pieces; trend data is placed at the JSON root. Local content validation and controlled API errors remain in place.
 
@@ -166,21 +167,21 @@ For `vintage graphic tee size XXS under $1`, the first search is empty, the seco
 
 ## Spec Reflection
 
-**How planning helped:** The state table and error branches made the data-flow requirements directly testable. Before the agent was wired, 34 isolated tool tests passed; the later identity test checked that both tools received the actual search object and that the caption received the exact outfit string. The separate stretch plan also made profile/trend enrichment possible without changing required tool signatures.
+**How planning helped:** Planning the state table and error branches helped me make the data-flow requirements directly testable. I required isolated tool tests before agent integration; Codex ran 34 passing tool tests at that checkpoint. The later identity test checked that both tools received the actual search object and that the caption received the exact outfit string. I also required a separate stretch plan, which allowed profile/trend enrichment without changing the required tool signatures.
 
-**Real implementation divergence:** The original AI201 Project 2 specification required `meta-llama/llama-4-scout-17b-16e-instruct`. Groq shut that model down for free/developer-tier usage on **July 17, 2026**, and [officially recommends `openai/gpt-oss-120b` as a replacement](https://console.groq.com/docs/deprecations). After an actual Scout `model_not_found` response, the user explicitly approved the replacement. Both generation tools therefore use **`openai/gpt-oss-120b` through Groq** so the required Groq-based workflow remains functional. The original Scout planning commits and historical failure evidence are preserved; GPT-OSS was not the original plan. All three required function signatures are unchanged.
+**Real implementation divergence:** The original course specification required Scout. During validation, the real request failed because Groq had retired that model for developer-tier use. After reviewing the failure and [Groq’s recommended replacement](https://console.groq.com/docs/deprecations), I approved migrating both generation tools to GPT-OSS while preserving their required interfaces. I required a complete end-to-end revalidation before accepting the implementation. The original Scout plan and its actual failure evidence remain preserved.
 
 Live migration testing exposed two response-format differences: one response exhausted the former 1,000-token cap, and another put the new listing ID among owned wardrobe IDs. Codex increased the cap to 2,500 with low reasoning effort, required strict schemas with an enum of real wardrobe IDs, specified root-level trend fields, and rejected truncated output. [Actual diagnostic responses](evidence/migration_diagnostic.json) and [wardrobe-ID diagnostic](evidence/migration_wardrobe_diagnostic.json) preserve what failed before the fix. The final real responses pass the content and state checks. The caption's factual opening remains deterministic, followed by 1–3 generated vibe sentences, keeping the required total at 2–4 sentences.
 
 ## AI Usage Transparency
 
-Codex carried out this project from the user's detailed request. No student review, edits, testing, or approval of generated content is claimed unless it actually occurred. The student still records the personal demo; there is no fabricated human-review statement requiring later confirmation.
+I supplied the official Project 2 assignment and grading rubric and directed the project toward every required target and all feasible stretch targets. I required the exact interfaces, planning before implementation, secrets kept out of Git, Project 1 preserved, and evidence for each rubric claim. Codex wrote substantial application and test code and ran the automated and live checks. My role was to set those requirements, review the completion reports, decide how to resolve the model blocker, and accept the implementation after revalidation.
 
-1. **Required specifications → tools:** Codex used the Tool 1/2/3 planning blocks, actual starter listing fields and data-loader functions to implement tools.py. It then ran 34 meaningful unit tests covering searches, normalization, size boundaries, request payloads, actual SDK exception types and guarded caption input before touching the agent implementation. Structured wardrobe IDs and deterministic caption facts were used to reduce unsupported generated details.
-2. **Architecture/state specification → agent and UI:** Codex used the planning loop, state table, diagrams and three-output UI contract to implement agent.py and app.py. Identity tests verified exact input flow and conditional tests verified early termination; the required suite reached 57 passing tests. While extending boundary coverage, inspection exposed a decimal shoe-size parsing gap; Codex revised the regex and added a regression for `size 8.5`.
-3. **Stretch/error specification → verification:** Codex implemented the separately committed stretch plan and added mocked HTTP, cache expiry, corrupted storage, two-process preference reuse, comparison and retry tests. It retrieved the real Depop report and launched/stopped the real Gradio app, validating a UI event through gradio_client. Live Groq testing exposed model retirement. After the user approved GPT-OSS, additional live testing exposed truncation and wardrobe-ID issues; Codex added regression tests, adjusted the request, and reran the real tool/agent/Gradio workflows successfully. No successful Scout request is claimed.
+1. **Required implementation:** I supplied the course tool specifications and required Codex to preserve the signatures, conditional workflow, and automatic state passing. Codex produced `tools.py`, `agent.py`, `app.py`, and tests for signatures, failure branches, and exact object/string flow. I required isolated tool tests before agent integration and a complete rubric check before acceptance. The recorded checkpoints were 34 tool tests and then 57 required-feature tests; Codex ran these checks.
+2. **Agent and stretch implementation:** I directed Codex to implement the separately planned stretch features and required evidence for persistent memory across interactions/processes, real sourced trend information, price reasoning, and bounded retry behavior. Codex produced the comparison, memory, trend, and retry code, along with automated tests and the technical validation harness. I required real Groq workflows and a Gradio interaction in addition to mocked tests, so generated code alone was not enough for acceptance.
+3. **Model migration and revision:** I reviewed the first completion report, which supported only 23/25 required and 5/7 stretch targets because the course-required Scout model had been retired. I did not accept that as the finished project. After reviewing the retirement issue and Groq’s recommended GPT-OSS replacement, I explicitly approved the migration. I then required Codex to rerun the full test suite, real Groq workflows, Gradio interaction, stretch validations, security audit, and rubric audit. Live testing exposed truncation and invalid wardrobe-ID responses; Codex adjusted the token budget and structured-output constraints, added regression coverage, and reran the checks. I accepted the implementation for final demo preparation only after the reported validation showed 91 passing tests and evidence supporting 25/25 required and 7/7 stretch targets.
 
-The commit history preserves both planning gates. Test fixtures and mocked model/HTTP responses are explicitly distinct from live evidence. No external trend statistics, screenshot, demo link or test output was invented.
+My review and acceptance covered the completion reports and their evidence summaries against the rubric. Codex performed the implementation work, test execution, and individual-output inspection described here. The commit history preserves both planning gates, and mocked fixtures are clearly separate from actual live results.
 
 ## Testing
 
@@ -193,7 +194,7 @@ python verify_app.py --output evidence/app_live.json
 
 Unit tests mock external services and isolate persistent state. Final result: **91 passed, 0 failed**. The scenario runner makes real Groq/source calls, checks deliberate failures and two-interaction/new-process memory, and exits nonzero if generation or output checks fail. It spaces requests by 15 seconds by default to respect the verified 8,000-token/minute account limit, so the full batch takes a few minutes. The application itself has no artificial delay; an API rate-limit response tells you when to retry.
 
-The app verifier starts app.py, requests the real HTTP config, and invokes empty, happy and impossible queries through Gradio's actual event API. The happy query completed all three required tools with real Groq generation, and the server stopped cleanly. Live checks verify real wardrobe names, 2–4 caption sentences, title/price/platform, identical item references, exact outfit-string passing and visible sourced trend application. The recorded outputs were also inspected for outfit coherence and vibe; this is Codex review, not a claim of student review.
+The app verifier starts app.py, requests the real HTTP config, and invokes empty, happy and impossible queries through Gradio's actual event API. The happy query completed all three required tools with real Groq generation, and the server stopped cleanly. Live checks verify real wardrobe names, 2–4 caption sentences, title/price/platform, identical item references, exact outfit-string passing and visible sourced trend application. Codex also inspected the recorded outputs for outfit coherence and vibe. I reviewed the completion reports and required successful revalidation before accepting the implementation.
 
 See [validation](evidence/validation.md), [test output](evidence/test_results.txt), [real agent outputs](evidence/live_demo.json), [real app outputs](evidence/app_live.json), and [every rubric target](evidence/rubric_audit.md): **25/25 required and 7/7 stretch evidence supported**. These are supported targets, not an awarded grade. No implementation blocker remains.
 
@@ -201,4 +202,4 @@ See [validation](evidence/validation.md), [test output](evidence/test_results.tx
 
 Demo video: TODO — add after recording
 
-Record **3–5 minutes**. Follow [the exact queries and script](evidence/demo_queries.md): show a full find → outfit → fit card interaction, explain state passing, trigger the impossible search, demonstrate relaxed filters, show price reasoning and source dates/trend application, then run two preference-memory interactions. Point to the planning commits, tests and truthful AI transparency. After recording/uploading, replace only the demo placeholder with the real URL and commit/push that README change.
+The 3–5 minute demo will show a complete three-tool workflow, state passing, adaptive/error behavior, and the implemented stretch features.

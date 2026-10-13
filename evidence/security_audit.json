@@ -1,6 +1,6 @@
 {
-  "worktree_files_scanned": 38,
-  "history_blobs_scanned": 52,
+  "worktree_files_scanned": 37,
+  "history_blobs_scanned": 71,
   "secret_matches_worktree": 0,
   "secret_matches_history": 0,
   "forbidden_tracked_files": [],

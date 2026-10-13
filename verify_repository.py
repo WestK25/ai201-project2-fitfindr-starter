@@ -15,7 +15,8 @@ def git(*args):
 
 
 def main():
-    files = sorted(set(git('ls-files', '-c', '--others', '--exclude-standard', '-z').decode().split('\0')) - {''})
+    files = sorted(f for f in set(git('ls-files', '-c', '--others', '--exclude-standard', '-z').decode().split('\0'))
+                   if f and (ROOT / f).is_file())
     tracked = set(git('ls-files', '-z').decode().split('\0'))
     patterns = re.compile(rb'(?:gsk_[A-Za-z0-9]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,})')
     key = dotenv_values(ROOT / '.env').get('GROQ_API_KEY', '')
