@@ -200,6 +200,6 @@ See [validation](evidence/validation.md), [test output](evidence/test_results.tx
 
 ## Demo
 
-Demo video: TODO — add after recording
+Demo video: [Watch the Project 2 demo](https://drive.google.com/file/d/1cwBPY42pi_oHp3Z9VzE9VN5SOEnPCBUv/view?usp=drivesdk)
 
 The 3–5 minute demo will show a complete three-tool workflow, state passing, adaptive/error behavior, and the implemented stretch features.
